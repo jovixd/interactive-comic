@@ -38,7 +38,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build
-        run: tsc && vite build --base=/interactive-comic/
+        run: npm run tsc && npm run vite build --base=/interactive-comic/
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
