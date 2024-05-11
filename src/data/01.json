@@ -1,0 +1,14 @@
+[
+    {
+        "id": "P00",
+        "image": "/01/P00.jpg",
+        "actionData": [
+            {
+                "type": "button",
+                "color": "blue",
+                "label": "Begin",
+                "destinationId": "P01"
+            }
+        ]
+    }
+]
