@@ -10,40 +10,23 @@ const ActionButton = styled(Button)({
     fontSize: '2rem',
 })
 
-type DuplicateButtonProps = {
-    label: string,
-    j: number
-}
-
-const DuplicateButton: React.FC<DuplicateButtonProps> = ({ label, j }) => (
-    <Grid display="flex" justifyContent="space-around" key={j} xs={6}>
-        <ActionButton fullWidth disableElevation size="large" variant="contained" color="primary">{label}</ActionButton>
-    </Grid>
-)
-
 const EscapeFromTheOceanPrison = () => {
     return (
         <Container disableGutters maxWidth="md">
             {data.map((page, i) => {
                 return (
-                    <>
-                        <Box display="flex" flexDirection="column" key={i}>
-                            <Box component="img" src={page.image} />
-                            <Grid container spacing={3} key={i} disableEqualOverflow>
+                    <Box display="flex" flexDirection="column" key={i}>
+                        <Box component="img" src={page.image} mb={4} />
+                        <Grid container spacing={3} disableEqualOverflow>
                                 {page.actionData.map((action, j) => {
-                                    return (
-                                        <>
-                                            <DuplicateButton label={action.label} j={j} />
-                                            <DuplicateButton label={action.label} j={j} />
-                                            <DuplicateButton label={action.label} j={j} />
-                                            <DuplicateButton label={action.label} j={j} />
-                                        </>
-                                    )
-                                })}
-                            </Grid>
-                        </Box>
-                    </>
-
+                                return (
+                                    <Grid display="flex" justifyContent="center" key={j} xs={6}>
+                                        <ActionButton fullWidth disableElevation size="large" variant="contained" color="primary">{action.label}</ActionButton>
+                                    </Grid>
+                                )
+                            })}                            
+                        </Grid>
+                    </Box>
                 )
             })}
         </Container>
