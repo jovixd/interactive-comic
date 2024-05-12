@@ -3,13 +3,27 @@ import * as ReactDOM from 'react-dom/client';
 import { ThemeProvider } from '@emotion/react';
 import { CssBaseline } from '@mui/material';
 import theme from './theme';
-import App from './App';
+import EscapeFromTheOceanPrison from './pages/01';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+
+// default path / goes to the only comic available
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <EscapeFromTheOceanPrison />,
+  },
+  {
+    path: "/escape-from-the-ocean-prison",
+    element: <EscapeFromTheOceanPrison />
+  }
+]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <App />
+      <CssBaseline>
+        <RouterProvider router={router} />
+      </CssBaseline>
     </ThemeProvider>
   </React.StrictMode>,
 );
