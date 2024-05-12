@@ -6,15 +6,11 @@ import theme from './theme';
 import EscapeFromTheOceanPrison from './pages/01';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-// default path / goes to the only comic available instead of App
+// default path / goes to the only comic available at this time
 const router = createBrowserRouter([
   {
     path: "/",
     element: <EscapeFromTheOceanPrison />,
-  },
-  {
-    path: "/escape-from-the-ocean-prison",
-    element: <EscapeFromTheOceanPrison />
   }
 ]);
 
