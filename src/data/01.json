@@ -1,14 +1,664 @@
-[
-    {
-        "id": "P00",
-        "image": "/01/P00.jpg",
-        "actionData": [
-            {
-                "type": "button",
-                "color": "blue",
-                "label": "Begin",
-                "destinationId": "P01"
-            }
-        ]
+{
+    "pages": [
+        {
+            "id": "P00",
+            "image": "/01/P00.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Begin",
+                    "destinationId": "P01"
+                }
+            ]
+        },
+        {
+            "id": "P01",
+            "image": "/01/P01.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Mission Start",
+                    "destinationId": "P02"
+                }
+            ]
+        },
+        {
+            "id": "P02",
+            "image": "/01/P02.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P02_1"
+                }
+            ]
+        },
+        {
+            "id": "P02_1",
+            "image": "/01/P02_1.jpg",
+            "actionData": [
+                {
+                    "type": "input",
+                    "color": "blue",
+                    "label": "Enter his name:",
+                    "answers": [
+                        {
+                            "answer": "akuji",
+                            "destinationId": "P03"
+                        },
+                        {
+                            "answer": "seigi",
+                            "destinationId": "P29"
+                        },
+                        {
+                            "answer": "default",
+                            "destinationId": "P03E"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "P03",
+            "image": "/01/P03.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "I'm new here. Nice to meet you.",
+                    "destinationId": "P04"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "I'm here to rescue you!",
+                    "destinationId": "P05"
+                }
+            ]
+        },
+        {
+            "id": "P04",
+            "image": "/01/P04.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P06"
+                }
+            ]
+        },
+        {
+            "id": "P05",
+            "image": "/01/P05.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P06"
+                }
+            ]
+        },
+        {
+            "id": "P29",
+            "image": "/01/P29.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P30"
+                }
+            ]
+        },
+        {
+            "id": "P03E",
+            "image": "/01/P03E.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P02_1"
+                }
+            ]
+        },
+        {
+            "id": "P06",
+            "image": "/01/P06.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Why?",
+                    "destinationId": "P07"
+                }
+            ]
+        },
+        {
+            "id": "P07",
+            "image": "/01/P07.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P07_1"
+                }
+            ]
+        },
+        {
+            "id": "P07_1",
+            "image": "/01/P07_1.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "Slip through the bars!",
+                    "destinationId": "P09"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Go through the toilet!",
+                    "destinationId": "P08"
+                },
+                {
+                    "type": "button",
+                    "color": "green",
+                    "label": "Rest in bed.",
+                    "requiredFlagUnset": "hasFaucet",
+                    "destinationId": "P10"
+                },
+                {
+                    "type": "button",
+                    "color": "green",
+                    "label": "Rest in bed.",
+                    "requiredFlagSet": "hasFaucet",
+                    "destinationId": "P11"
+                }
+            ]
+        },
+        {
+            "id": "P08",
+            "image": "/01/P08.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "Return",
+                    "destinationId": "P07_1"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Look closer",
+                    "destinationId": "P08_1",
+                    "requiredFlagUnset": "hasFaucet"
+                }
+            ]
+        },
+        {
+            "id": "P08_1",
+            "image": "/01/P08_1.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Take it with you",
+                    "destinationId": "P07_1",
+                    "setFlag": "hasFaucet"
+                }
+            ]
+        },
+        {
+            "id": "P11",
+            "image": "/01/P11.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P32"
+                }
+            ]
+        },
+        {
+            "id": "P09",
+            "image": "/01/P09.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Return",
+                    "destinationId": "P07_1"
+                }
+            ]
+        },
+        {
+            "id": "P10",
+            "image": "/01/P10.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Return",
+                    "destinationId": "P07_1"
+                }
+            ]
+        },
+        {
+            "id": "P32",
+            "image": "/01/P32.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "Bribe a guard",
+                    "destinationId": "P13"
+                },
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "Run as fast as your legs can carry you!",
+                    "destinationId": "P12"
+                },
+                {
+                    "type": "button",
+                    "color": "green",
+                    "label": "Cause a riot and escape in the ruckus!",
+                    "destinationId": "P14"
+                }
+            ]
+        },
+        {
+            "id": "P13",
+            "image": "/01/P13.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P32"
+                }
+            ]
+        },
+        {
+            "id": "P12",
+            "image": "/01/P12.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P32"
+                }
+            ]
+        },
+        {
+            "id": "P14",
+            "image": "/01/P14.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P15"
+                }
+            ]
+        },
+        {
+            "id": "P15",
+            "image": "/01/P15.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "Run left!",
+                    "destinationId": "P16A"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Run right!",
+                    "destinationId": "P16B"
+                },
+                {
+                    "type": "button",
+                    "color": "green",
+                    "label": "Run straight!!",
+                    "destinationId": "P17"
+                }
+            ]
+        },
+        {
+            "id": "P16A",
+            "image": "/01/P16A.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P15"
+                }
+            ]
+        },
+        {
+            "id": "P16B",
+            "image": "/01/P16B.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P15"
+                }
+            ]
+        },
+        {
+            "id": "P17",
+            "image": "/01/P17.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "Crouch!",
+                    "destinationId": "P19"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Jump!!",
+                    "destinationId": "P18A"
+                },
+                {
+                    "type": "button",
+                    "color": "green",
+                    "label": "Dance!",
+                    "destinationId": "P18B"
+                }
+            ]
+        },
+        {
+            "id": "P19",
+            "image": "/01/P19.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "Climb!",
+                    "destinationId": "P20"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Charge!",
+                    "destinationId": "P21"
+                },
+                {
+                    "type": "button",
+                    "color": "green",
+                    "label": "Turn around!",
+                    "destinationId": "P20"
+                }
+            ]
+        },
+        {
+            "id": "P20",
+            "image": "/01/P20.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P19"
+                }
+            ]
+        },
+        {
+            "id": "P18A",
+            "image": "/01/P18A.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P17"
+                }
+            ]
+        },
+        {
+            "id": "P18B",
+            "image": "/01/P18B.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P17"
+                }
+            ]
+        },
+        {
+            "id": "P21",
+            "image": "/01/P21.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P21_1"
+                }
+            ]
+        },
+        {
+            "id": "P21_1",
+            "image": "/01/P21_1.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "Swim with the float rings!",
+                    "destinationId": "P23"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Take the boat!",
+                    "destinationId": "P22"
+                },
+                {
+                    "type": "button",
+                    "color": "green",
+                    "label": "Swim unaided!",
+                    "destinationId": "P24"
+                }
+            ]
+        },
+        {
+            "id": "P22",
+            "image": "/01/P22.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P26A"
+                }
+            ]
+        },
+        {
+            "id": "P26A",
+            "image": "/01/P26A.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P27A"
+                }
+            ]
+        },
+        {
+            "id": "P27A",
+            "image": "/01/P27A.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P21_1"
+                }
+            ]
+        },
+        {
+            "id": "P23",
+            "image": "/01/P23.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P26B"
+                }
+            ]
+        },
+        {
+            "id": "P26B",
+            "image": "/01/P26B.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P27B"
+                }
+            ]
+        },
+        {
+            "id": "P27B",
+            "image": "/01/P27B.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P21_1"
+                }
+            ]
+        },
+        {
+            "id": "P24",
+            "image": "/01/P24.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "Guess we'll use the float rings...",
+                    "destinationId": "P23"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Let's take the boat!",
+                    "destinationId": "P22"
+                },
+                {
+                    "type": "button",
+                    "color": "green",
+                    "label": "You can practice swimming now, then!",
+                    "destinationId": "P24_1"
+                }
+            ]
+        },
+        {
+            "id": "P24_1",
+            "image": "/01/P24_1.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "Should we use the float rings after all...?",
+                    "destinationId": "P23"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Fine, we can use the boat.",
+                    "destinationId": "P22"
+                },
+                {
+                    "type": "button",
+                    "color": "green",
+                    "label": "Just keep practicing and you'll get the hang of it!",
+                    "destinationId": "P25"
+                }
+            ]
+        },
+        {
+            "id": "P25",
+            "image": "/01/P25.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P26"
+                }
+            ]
+        },
+        {
+            "id": "P26",
+            "image": "/01/P26.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P28"
+                }
+            ]
+        },
+        {
+            "id": "P28",
+            "image": "/01/P28.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P01"
+                }
+            ]
+        },
+        {
+            "id": "P30",
+            "image": "/01/P30.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P31"
+                }
+            ]
+        },
+        {
+            "id": "P31",
+            "image": "/01/P31.jpg",
+            "actionData": [
+                {
+                    "type": "end",
+                    "label": "THE END"
+                }
+            ]
+        }
+    ],
+    "flags": {
+        "hasFaucet": false
     }
-]
+}

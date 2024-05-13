@@ -1,35 +1,30 @@
-import Container from "@mui/material/Container"
+import InteractiveComic from "../components/InteractiveComic"
 import data from "../data/01.json"
-import { Box, Button, styled } from "@mui/material"
-import Grid from "@mui/material/Unstable_Grid2"
+import { PageData } from "../types"
+import { useState } from "react"
 
-const ActionButton = styled(Button)({
-    borderRadius: "3rem",
-    textTransform: 'none',
-    height: '6rem',
-    fontSize: '2rem',
-})
+const pages = data.pages.reduce((previous: Record<string, PageData>, current) => {
+    const page = current as PageData
+    previous[page.id] = page
+    return previous
+}, {})
+
+const flags: Record<string, boolean> = data.flags
 
 const EscapeFromTheOceanPrison = () => {
+    const [currentPageId, setCurrentPageId] = useState("P00")
+    const [currentFlags, setCurrentFlags] = useState(flags)
+    const handlePageChange = (newPageId: string) => {
+        setCurrentPageId(newPageId)
+    }
+    const handleFlagSet = (flag: string) => {
+        setCurrentFlags({
+            ...currentFlags,
+            flag: !currentFlags[flag]
+        })
+    }
     return (
-        <Container disableGutters maxWidth="md">
-            {data.map((page, i) => {
-                return (
-                    <Box display="flex" flexDirection="column" key={i}>
-                        <Box component="img" src={page.image} mb={4} />
-                        <Grid container spacing={3} disableEqualOverflow>
-                                {page.actionData.map((action, j) => {
-                                return (
-                                    <Grid display="flex" justifyContent="center" key={j} xs={6}>
-                                        <ActionButton fullWidth disableElevation size="large" variant="contained" color="primary">{action.label}</ActionButton>
-                                    </Grid>
-                                )
-                            })}                            
-                        </Grid>
-                    </Box>
-                )
-            })}
-        </Container>
+        <InteractiveComic pageData={pages[currentPageId]} currentFlags={currentFlags} handlePageChange={handlePageChange} handleFlagSet={handleFlagSet}/>
     )
 }
 
