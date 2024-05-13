@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "build-basepath": "tsc && vite build",
+    "build-basepath": "tsc && vite build --base=/interactive-comic/",
     "preview": "vite preview"
   },
   "dependencies": {
