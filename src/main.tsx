@@ -13,7 +13,9 @@ const router = createBrowserRouter([
     path: "/",
     element: <EscapeFromTheOceanPrison />,
   }
-]);
+], {
+  basename: import.meta.env.BASE_URL
+});
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
