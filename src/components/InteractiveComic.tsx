@@ -24,7 +24,7 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, handlePag
         <Container disableGutters maxWidth="md">
             <Box display="flex" flexDirection="column">
             {/* TODO: baseUrl appended to image for GH Pages */}
-                <Box component="img" src={pageData.image} mb={4} />
+                <Box component="img" src={import.meta.env.BASE_URL + pageData.image} mb={4} />
                 <Grid container spacing={2} m={3} disableEqualOverflow>
                     {pageData.actionData.map((action, index) => {
                         switch (action.type) {
