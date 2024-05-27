@@ -14,7 +14,7 @@ const flags: Record<string, boolean> = data.flags
 const EscapeFromTheOceanPrison = () => {
     const [currentPageId, setCurrentPageId] = useState("P00")
     const [currentFlags, setCurrentFlags] = useState(flags)
-    const handlePageChange = (newPageId: string) => {
+    const changePageId = (newPageId: string) => {
         setCurrentPageId(newPageId)
     }
     const handleFlagSet = (flag: string) => {
@@ -24,7 +24,7 @@ const EscapeFromTheOceanPrison = () => {
         })
     }
     return (
-        <InteractiveComic pageData={pages[currentPageId]} currentFlags={currentFlags} handlePageChange={handlePageChange} handleFlagSet={handleFlagSet}/>
+        <InteractiveComic pageData={pages[currentPageId]} currentFlags={currentFlags} changePageId={changePageId} handleFlagSet={handleFlagSet}/>
     )
 }
 

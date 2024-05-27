@@ -1,7 +1,7 @@
 import { Box, Button, Container, styled } from "@mui/material"
-import { PageData } from "../types"
+import { DestinationAction, PageData } from "../types"
 import Grid from "@mui/material/Unstable_Grid2"
-import { useEffect } from "react"
+import { useState } from "react"
 
 export const ActionButton = styled(Button)({
     borderRadius: "3rem",
@@ -11,20 +11,33 @@ export const ActionButton = styled(Button)({
 type InteractiveComicProps = {
     pageData: PageData
     currentFlags: Record<string, boolean>,
-    handlePageChange: (newPageId: string) => void,
+    changePageId: (newPageId: string) => void,
     handleFlagSet: (flag: string) => void
 }
 
-const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, handlePageChange, handleFlagSet }) => {
-    useEffect(() => {
-        window.scrollTo({top: 0, left: 0, behavior: "smooth"})
-    }, [pageData.image])
-    
+const Loader: React.FC = () => {
+    return (
+        <Box height="100vh" sx={{ background: "black" }} />
+    )
+}
+
+const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFlags, changePageId, handleFlagSet }) => {
+    const [imageLoaded, setImageLoaded] = useState(true)
+    const handlePageChange = (destinationId: DestinationAction["destinationId"]) => {
+        // show loader
+        setImageLoaded(false)
+        // send player to the top
+        window.scrollTo(0, 0)
+        // change the image and available actions e.g. buttons
+        changePageId(destinationId)
+    }
+
     return (
         <Container disableGutters maxWidth="md">
             <Box display="flex" flexDirection="column">
-            {/* TODO: baseUrl appended to image for GH Pages */}
-                <Box component="img" src={import.meta.env.BASE_URL + pageData.image} mb={4} />
+                {/* TODO: baseUrl appended to image for GH Pages */}
+                {!imageLoaded && <Loader />}
+                <Box component="img" src={import.meta.env.BASE_URL + pageData.image} onLoad={() => setImageLoaded(true)} mb={4} />
                 <Grid container spacing={2} m={3} disableEqualOverflow>
                     {pageData.actionData.map((action, index) => {
                         switch (action.type) {
