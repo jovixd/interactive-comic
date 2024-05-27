@@ -33,12 +33,17 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
         changePageId(destinationId)
     }
 
+    const onOnLoad = () => {
+        console.log("loaded image")
+        setImageLoaded(true)
+    }
+
     return (
         <Container disableGutters maxWidth="md">
             <Box display="flex" flexDirection="column">
                 {/* TODO: baseUrl appended to image for GH Pages */}
                 {!imageLoaded && <Loader />}
-                <Box component="img" src={import.meta.env.BASE_URL + pageData.image} onLoad={() => setImageLoaded(true)} mb={4} />
+                <Box component="img" src={ pageData.image} onLoad={onOnLoad} mb={4} />
                 <Grid container spacing={2} m={3} disableEqualOverflow>
                     {pageData.actionData.map((action, index) => {
                         switch (action.type) {
