@@ -25,6 +25,7 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
     const [imageLoaded, setImageLoaded] = useState(true)
     const handlePageChange = (destinationId: DestinationAction["destinationId"]) => {
         // show loader
+        console.log("setting loader")
         setImageLoaded(false)
         // send player to the top
         window.scrollTo(0, 0)
