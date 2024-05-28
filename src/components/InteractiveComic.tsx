@@ -41,8 +41,8 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
     }
     const handleInputSubmit = (event: React.FormEvent<HTMLFormElement>, answers: InputAction["answers"]) => {
         event.preventDefault()
-        const nameLowercase = name.toLowerCase()
-        const potentialMatch = answers.find((answer) => answer.answer === nameLowercase)
+        const nameCleaned = name.trim().toLowerCase()
+        const potentialMatch = answers.find((answer) => answer.answer === nameCleaned)
         if (potentialMatch === undefined) {
             // FIXME: there will always be a default option in our data
             // @ts-ignore
