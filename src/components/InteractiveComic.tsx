@@ -44,6 +44,7 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
         const potentialMatch = answers.find((answer) => answer.answer === name)
         if (potentialMatch === undefined) {
             // FIXME: there will always be a default option in our data
+            // @ts-ignore
             handlePageChange(answers.find((answer) => answer.answer === "default"))
         }
         else {
@@ -66,6 +67,7 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
                                     // TODO: center orphaned buttons
                                     <Grid key={index} xs={6} xsOffset={pageData.actionData.length === 1 ? 3 : 0}>
                                         {/* FIXME: using undefined as an index */}
+                                        {/* @ts-ignore */}
                                         {currentFlags[action?.requiredFlag?.flag] === action?.requiredFlag?.flagValue &&
                                             <ActionButton onClick={() => handlePageChange(action)} fullWidth disableElevation size="large" variant="contained" color={action.color}>{action.label}</ActionButton>}
                                     </Grid>
