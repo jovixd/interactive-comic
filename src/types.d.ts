@@ -1,3 +1,36 @@
+/*
+    Custom button colors
+*/
+
+declare module '@mui/material/styles' {
+    interface Palette {
+        orange: Palette['primary'];
+        blue: Palette['primary'];
+        pink: Palette['primary'];
+        green: Palette['primary'];
+    }
+
+    interface PaletteOptions {
+        orange?: PaletteOptions['primary'];
+        blue?: PaletteOptions['primary'];
+        pink?: PaletteOptions['primary'];
+        green?: PaletteOptions['primary'];
+    }
+}
+
+declare module '@mui/material/Button' {
+    interface ButtonPropsColorOverrides {
+        orange: true;
+        blue: true;
+        pink: true;
+        green: true;
+    }
+}
+
+/* 
+    Player actions
+*/
+
 export type EndAction = {
     label: string,
     type: "end"

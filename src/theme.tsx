@@ -1,18 +1,35 @@
 import { createTheme } from '@mui/material/styles';
-import { red } from '@mui/material/colors';
 
 // A custom theme for this app
-const theme = createTheme({
+
+let theme = createTheme()
+
+theme = createTheme(theme, {
   palette: {
-    primary: {
-      main: '#556cd6',
-    },
-    secondary: {
-      main: '#19857b',
-    },
-    error: {
-      main: red.A400,
-    },
+    orange: theme.palette.augmentColor({
+      color: {
+        main: '#feb65e',
+      },
+      name: 'orange',
+    }),
+    blue: theme.palette.augmentColor({
+      color: {
+        main: '#78ceff',
+      },
+      name: 'blue',
+    }),
+    pink: theme.palette.augmentColor({
+      color: {
+        main: '#f78cf2',
+      },
+      name: 'pink',
+    }),
+    green: theme.palette.augmentColor({
+      color: {
+        main: '#45ec60',
+      },
+      name: 'green',
+    }),
   },
 });
 
