@@ -39,13 +39,15 @@ export type EndAction = {
 // TODO: can we type the (not-)required flag & flag to set stronger?
 type DestinationAction = {
     destinationId: string
-    requiredFlagSet?: string
-    requiredFlagUnset?: string
+    requiredFlag?: {
+        flag: string
+        flagValue: boolean
+    }
     setFlag?: string
 }
 
 export type ButtonAction = DestinationAction & {
-    color: string,
+    color: Palette,
     label: string,
     type: "button"
 }
@@ -54,8 +56,8 @@ export type InputAction = {
     label: string,
     type: "input",
     answers: (DestinationAction & {
-        answer: "default" | string
-    })[]
+        answer: "default" & string
+    })[] 
 }
 
 type Action = ButtonAction | InputAction

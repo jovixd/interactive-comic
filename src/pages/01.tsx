@@ -15,12 +15,13 @@ const EscapeFromTheOceanPrison = () => {
     const [currentPageId, setCurrentPageId] = useState("P00")
     const [currentFlags, setCurrentFlags] = useState(flags)
     const changePageId = (newPageId: string) => {
+        // TODO: unnecessary renders are happening, consider callbacks
         setCurrentPageId(newPageId)
     }
     const handleFlagSet = (flag: string) => {
         setCurrentFlags({
             ...currentFlags,
-            flag: !currentFlags[flag]
+            [flag]: !currentFlags[flag]
         })
     }
     return (

@@ -30,6 +30,12 @@ theme = createTheme(theme, {
       },
       name: 'green',
     }),
+    yellow: theme.palette.augmentColor({
+      color: {
+        main: '#fafe00',
+      },
+      name: 'yellow',
+    }),
   },
 });
 

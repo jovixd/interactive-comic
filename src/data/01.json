@@ -42,7 +42,6 @@
             "actionData": [
                 {
                     "type": "input",
-                    "color": "blue",
                     "label": "Enter his name:",
                     "answers": [
                         {
@@ -171,14 +170,20 @@
                     "type": "button",
                     "color": "green",
                     "label": "Rest in bed.",
-                    "requiredFlagUnset": "hasFaucet",
+                    "requiredFlag": {
+                        "flag": "hasFaucet",
+                        "flagValue": false
+                    },
                     "destinationId": "P10"
                 },
                 {
                     "type": "button",
                     "color": "green",
                     "label": "Rest in bed.",
-                    "requiredFlagSet": "hasFaucet",
+                    "requiredFlag": {
+                        "flag": "hasFaucet",
+                        "flagValue": true
+                    },
                     "destinationId": "P11"
                 }
             ]
@@ -198,7 +203,10 @@
                     "color": "blue",
                     "label": "Look closer",
                     "destinationId": "P08_1",
-                    "requiredFlagUnset": "hasFaucet"
+                    "requiredFlag": {
+                        "flag": "hasFaucet",
+                        "flagValue": false
+                    }
                 }
             ]
         },
@@ -263,7 +271,7 @@
                 },
                 {
                     "type": "button",
-                    "color": "orange",
+                    "color": "blue",
                     "label": "Run as fast as your legs can carry you!",
                     "destinationId": "P12"
                 },
