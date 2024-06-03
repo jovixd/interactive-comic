@@ -13,7 +13,8 @@ type InteractiveComicProps = {
     pageData: PageData
     currentFlags: Record<string, boolean>,
     changePageId: (newPageId: string) => void,
-    handleFlagSet: (flag: string) => void
+    handleFlagSet: (flag: string) => void,
+    restart: () => void
 }
 
 const Loader: React.FC = () => {
@@ -24,7 +25,7 @@ const Loader: React.FC = () => {
     )
 }
 
-const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFlags, changePageId, handleFlagSet }) => {
+const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFlags, changePageId, handleFlagSet, restart }) => {
     const [loading, setLoading] = useState(false)
     const [name, setName] = useState('')
     const handlePageChange = (action: DestinationAction) => {
@@ -32,21 +33,24 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
         setLoading(true)
         // send player to the top
         window.scrollTo(0, 0)
-        // set any required flags
-        if (typeof action?.setFlag === "string") {
+        // set any required flags, or reset flags and page if we're restarting
+        if (action?.setFlag) {
             handleFlagSet(action.setFlag)
         }
-        // change the image and available actions e.g. buttons
-        changePageId(action.destinationId)
+        if (action.destinationId === "restart") {
+            restart()
+        }
+        else {
+            // change the image and available actions e.g. buttons
+            changePageId(action.destinationId)
+        }
     }
-    const handleInputSubmit = (event: React.FormEvent<HTMLFormElement>, answers: InputAction["answers"]) => {
+    const handleInputSubmit = (event: React.FormEvent<HTMLFormElement>, action: InputAction) => {
         event.preventDefault()
         const nameCleaned = name.trim().toLowerCase()
-        const potentialMatch = answers.find((answer) => answer.answer === nameCleaned)
+        const potentialMatch = action.answers.find((answer) => answer.answer === nameCleaned)
         if (potentialMatch === undefined) {
-            // FIXME: there will always be a default option in our data
-            // @ts-ignore
-            handlePageChange(answers.find((answer) => answer.answer === "default"))
+            handlePageChange(action.defaultAnswer)
         }
         else {
             handlePageChange(potentialMatch)
@@ -76,7 +80,7 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
                             case "input":
                                 return (
                                     <Grid key={index} xs={6} xsOffset={3}>
-                                        <form onSubmit={(event) => handleInputSubmit(event, action.answers)}>
+                                        <form onSubmit={(event) => handleInputSubmit(event, action)}>
                                             <TextField fullWidth variant="filled" label={action.label} value={name} onInput={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)} />
                                         </form>
                                     </Grid>

@@ -52,12 +52,15 @@ export type ButtonAction = DestinationAction & {
     type: "button"
 }
 
+export type InputAnswer = DestinationAction & {
+    answer: string
+}
+
 export type InputAction = {
     label: string,
     type: "input",
-    answers: (DestinationAction & {
-        answer: "default" & string
-    })[] 
+    answers: InputAnswer[] 
+    defaultAnswer: InputAnswer
 }
 
 type Action = ButtonAction | InputAction

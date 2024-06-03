@@ -51,12 +51,12 @@
                         {
                             "answer": "seigi",
                             "destinationId": "P29"
-                        },
-                        {
-                            "answer": "default",
-                            "destinationId": "P03E"
                         }
-                    ]
+                    ],
+                    "defaultAnswer": {
+                        "answer": "default",
+                        "destinationId": "P03E"
+                    }
                 }
             ]
         },
@@ -639,7 +639,7 @@
                     "type": "button",
                     "color": "blue",
                     "label": "Retry!!",
-                    "destinationId": "P01"
+                    "destinationId": "restart"
                 }
             ]
         },
