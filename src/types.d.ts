@@ -36,8 +36,7 @@ export type EndAction = {
     type: "end"
 }
 
-// TODO: can we type the (not-)required flag & flag to set stronger?
-type DestinationAction = {
+export type DestinationAction = {
     destinationId: string
     requiredFlag?: {
         flag: string

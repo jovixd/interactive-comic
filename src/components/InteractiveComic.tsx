@@ -57,37 +57,41 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
         }
     }
 
+    const isVisibleAction = (action: DestinationAction) => {
+        const requiredFlag = action?.requiredFlag
+        if (requiredFlag === undefined || currentFlags[requiredFlag.flag] === requiredFlag.flagValue) {
+            return true
+        }
+        return false
+    }
 
     return (
         <Container disableGutters maxWidth="md">
             <Box display="flex" flexDirection="column">
                 {loading && <Loader />}
                 {/* TODO: baseUrl appended to image for GH Pages */}
-                <Box component="img" src={import.meta.env.BASE_URL + pageData.image} onLoad={() => setLoading(false)} display={loading ? "none" : "block"} mb={4} />
-                <Grid container spacing={2} m={3} disableEqualOverflow>
+                <Box component="img" src={import.meta.env.BASE_URL + pageData.image} onLoad={() => setLoading(false)} display={loading ? "none" : "block"} mb={4} alt={pageData.id}/>
+                <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1em' }} m={2}>
                     {pageData.actionData.map((action, index) => {
                         switch (action.type) {
                             case "button":
                                 return (
-                                    // TODO: center orphaned buttons
-                                    <Grid key={index} xs={6} xsOffset={pageData.actionData.length === 1 ? 3 : 0}>
-                                        {/* FIXME: using undefined as an index */}
-                                        {/* @ts-ignore */}
-                                        {currentFlags[action?.requiredFlag?.flag] === action?.requiredFlag?.flagValue &&
-                                            <ActionButton onClick={() => handlePageChange(action)} fullWidth disableElevation size="large" variant="contained" color={action.color}>{action.label}</ActionButton>}
-                                    </Grid>
+                                    <React.Fragment key={index}>
+                                        {isVisibleAction(action) &&
+                                            <ActionButton sx={{':last-child:nth-of-type(2n-1)': {
+      justifySelf: "center", gridColumnStart: "span 2", width: "50%" 
+    }}} onClick={() => handlePageChange(action)} fullWidth disableElevation size="large" variant="contained" color={action.color}>{action.label}</ActionButton>}
+                                    </React.Fragment>
                                 )
                             case "input":
                                 return (
-                                    <Grid key={index} xs={6} xsOffset={3}>
-                                        <form onSubmit={(event) => handleInputSubmit(event, action)}>
-                                            <TextField fullWidth variant="filled" label={action.label} value={name} onInput={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)} />
-                                        </form>
-                                    </Grid>
+                                    <Box key={index} component="form" onSubmit={(event) => handleInputSubmit(event, action)} sx={{gridColumnStart: "span 2"}}>
+                                        <TextField fullWidth variant="filled" label={action.label} value={name} onInput={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)} />
+                                    </Box>
                                 )
                         }
                     })}
-                </Grid>
+                </Box>
             </Box>
         </Container>
     )

@@ -4,7 +4,7 @@ import { PageData } from "../types"
 import { useState } from "react"
 
 const coverPage = "P00"
-const firstPage = "P01"
+const startPage = "P01"
 const pages = data.pages.reduce((previous: Record<string, PageData>, current) => {
     const page = current as PageData
     previous[page.id] = page
@@ -27,7 +27,7 @@ const EscapeFromTheOceanPrison = () => {
     }
     const restart = () => {
         setCurrentFlags(data.flags)
-        changePageId(firstPage)
+        changePageId(startPage)
     }
     return (
         <InteractiveComic pageData={pages[currentPageId]} currentFlags={currentFlags} changePageId={changePageId} handleFlagSet={handleFlagSet} restart={restart}/>
