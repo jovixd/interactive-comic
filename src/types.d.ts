@@ -8,6 +8,7 @@ declare module '@mui/material/styles' {
         blue: Palette['primary'];
         pink: Palette['primary'];
         green: Palette['primary'];
+        yellow: Palette['primary'];
     }
 
     interface PaletteOptions {
@@ -15,6 +16,7 @@ declare module '@mui/material/styles' {
         blue?: PaletteOptions['primary'];
         pink?: PaletteOptions['primary'];
         green?: PaletteOptions['primary'];
+        yellow?: PaletteOptions['primary'];
     }
 }
 
@@ -24,17 +26,13 @@ declare module '@mui/material/Button' {
         blue: true;
         pink: true;
         green: true;
+        yellow: true;
     }
 }
 
 /* 
     Player actions
 */
-
-export type EndAction = {
-    label: string,
-    type: "end"
-}
 
 export type DestinationAction = {
     destinationId: string
@@ -67,5 +65,5 @@ type Action = ButtonAction | InputAction
 export type PageData = {
     id: string,
     image: string,
-    actionData: Action[] | EndAction[]
+    actionData: Action[]
 }

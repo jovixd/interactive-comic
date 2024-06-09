@@ -660,8 +660,10 @@
             "image": "/01/P31.jpg",
             "actionData": [
                 {
-                    "type": "end",
-                    "label": "THE END"
+                    "type": "button",
+                    "color": "yellow",
+                    "label": "THE END",
+                    "destinationId": "restart"
                 }
             ]
         }
