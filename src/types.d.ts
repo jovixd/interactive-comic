@@ -43,13 +43,13 @@ export type DestinationAction = {
     setFlag?: string
 }
 
-export type ButtonAction = DestinationAction & {
+type ButtonAction = DestinationAction & {
     color: Palette,
     label: string,
     type: "button"
 }
 
-export type InputAnswer = DestinationAction & {
+type InputAnswer = DestinationAction & {
     answer: string
 }
 
@@ -62,8 +62,13 @@ export type InputAction = {
 
 type Action = ButtonAction | InputAction
 
+type EndAction = {
+    label: string,
+    type: "end"
+}
+
 export type PageData = {
     id: string,
     image: string,
-    actionData: Action[]
+    actionData: Action[] | EndAction[]
 }

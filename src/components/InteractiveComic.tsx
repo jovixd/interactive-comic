@@ -1,6 +1,5 @@
-import { Box, Button, CircularProgress, Container, TextField, styled } from "@mui/material"
+import { Box, Button, CircularProgress, Container, TextField, Typography, styled } from "@mui/material"
 import { DestinationAction, InputAction, PageData } from "../types"
-import Grid from "@mui/material/Unstable_Grid2"
 import React, { useState } from "react"
 
 const ActionButton = styled(Button)({
@@ -88,6 +87,10 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
                                     <Box key={index} component="form" onSubmit={(event) => handleInputSubmit(event, action)} sx={{gridColumnStart: "span 2"}}>
                                         <TextField fullWidth variant="filled" label={action.label} value={name} onInput={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)} />
                                     </Box>
+                                )
+                            case "end":
+                                return (
+                                    <Typography key={index} variant="h3" textAlign="center" sx={{gridColumnStart: "span 2"}} mb={4}>{action.label}</Typography>
                                 )
                         }
                     })}
