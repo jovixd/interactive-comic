@@ -1,11 +1,15 @@
-import { Box, Button, CircularProgress, Container, TextField, Typography, styled } from "@mui/material"
+import { Box, Button, CircularProgress, Container, InputAdornment, TextField, Typography, styled } from "@mui/material"
 import { DestinationAction, InputAction, PageData } from "../types"
 import React, { useState } from "react"
 
 const ActionButton = styled(Button)({
-    borderRadius: "2rem",
+    borderRadius: "3rem",
     border: "thin solid #7d7d7d",
-    textTransform: 'none'
+    textTransform: 'none',
+    padding: "1.5em",
+    ':last-child:nth-of-type(2n-1)': {
+      justifySelf: "center", gridColumnStart: "span 2", width: "50%" 
+    }
 })
 
 type InteractiveComicProps = {
@@ -70,27 +74,31 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
                 {loading && <Loader />}
                 {/* TODO: baseUrl appended to image for GH Pages */}
                 <Box component="img" src={pageData.image} onLoad={() => setLoading(false)} display={loading ? "none" : "block"} mb={4} alt={pageData.id}/>
-                <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1em' }} m={2}>
+                <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1em' }} m={2} mb={4}>
                     {pageData.actionData.map((action, index) => {
                         switch (action.type) {
                             case "button":
                                 return (
                                     <React.Fragment key={index}>
                                         {isVisibleAction(action) &&
-                                            <ActionButton sx={{':last-child:nth-of-type(2n-1)': {
-      justifySelf: "center", gridColumnStart: "span 2", width: "50%" 
-    }}} onClick={() => handlePageChange(action)} fullWidth disableElevation size="large" variant="contained" color={action.color}>{action.label}</ActionButton>}
+                                            <ActionButton onClick={() => handlePageChange(action)} fullWidth disableElevation size="large" variant="contained" color={action.color}>{action.label}</ActionButton>}
                                     </React.Fragment>
                                 )
                             case "input":
                                 return (
                                     <Box key={index} component="form" onSubmit={(event) => handleInputSubmit(event, action)} sx={{gridColumnStart: "span 2"}}>
-                                        <TextField fullWidth variant="filled" label={action.label} value={name} onInput={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)} />
+                                        <TextField fullWidth variant="filled" label={action.label} value={name} onInput={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)} 
+                                            InputProps={{
+                                                sx: {height: "4.5em"},
+                                                endAdornment: <InputAdornment position="end">
+                                                    <Button type="submit">Submit</Button>
+                                                </InputAdornment>
+                                            }}/>
                                     </Box>
                                 )
                             case "end":
                                 return (
-                                    <Typography key={index} variant="h3" textAlign="center" sx={{gridColumnStart: "span 2"}} mb={4}>{action.label}</Typography>
+                                    <Typography key={index} variant="h3" textAlign="center" sx={{gridColumnStart: "span 2"}} mb={2}>{action.label}</Typography>
                                 )
                         }
                     })}
