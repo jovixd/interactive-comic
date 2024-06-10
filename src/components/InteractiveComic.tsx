@@ -37,7 +37,7 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
 
     const setAndValidateName = (value: string) => {
         setName(value)
-        if (value.length === 0) {
+        if (value.trim().toLowerCase().length === 0) {
             setIsNameInvalid(true)
         }
         else {
