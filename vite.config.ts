@@ -6,7 +6,7 @@ export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd())
   const useGithubActions = env.VITE_USE_GITHUB_ACTIONS
   return {
-    base: useGithubActions ? '/interactive-comic/' : '/',
+    base: '/',
     plugins: [react()]
   }
 });
