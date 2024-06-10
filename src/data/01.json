@@ -195,18 +195,18 @@
                 {
                     "type": "button",
                     "color": "orange",
-                    "label": "Return",
-                    "destinationId": "P07_1"
-                },
-                {
-                    "type": "button",
-                    "color": "blue",
                     "label": "Look closer",
                     "destinationId": "P08_1",
                     "requiredFlag": {
                         "flag": "hasFaucet",
                         "flagValue": false
                     }
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Return",
+                    "destinationId": "P07_1"
                 }
             ]
         },
@@ -476,14 +476,14 @@
                 {
                     "type": "button",
                     "color": "blue",
-                    "label": "Take the boat!",
-                    "destinationId": "P22"
+                    "label": "Swim unaided!",
+                    "destinationId": "P24"
                 },
                 {
                     "type": "button",
                     "color": "green",
-                    "label": "Swim unaided!",
-                    "destinationId": "P24"
+                    "label": "Take the boat!",
+                    "destinationId": "P22"
                 }
             ]
         },
