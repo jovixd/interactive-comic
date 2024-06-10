@@ -24,7 +24,7 @@ jobs:
   # Single deploy job since we're just deploying
   deploy:
     env:
-      GITHUB_ACTIONS: "true"
+      VITE_USE_GITHUB_ACTIONS: true
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

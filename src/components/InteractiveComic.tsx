@@ -72,8 +72,7 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
         <Container disableGutters maxWidth="md">
             <Box display="flex" flexDirection="column">
                 {loading && <Loader />}
-                {/* TODO: baseUrl appended to image for GH Pages */}
-                <Box component="img" src={import.meta.env.BASE_URL + pageData.image} onLoad={() => setLoading(false)} display={loading ? "none" : "block"} mb={4} alt={pageData.id}/>
+                <Box component="img" src={pageData.image} onLoad={() => setLoading(false)} display={loading ? "none" : "block"} mb={4} alt={pageData.id}/>
                 <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1em' }} m={2} mb={4}>
                     {pageData.actionData.map((action, index) => {
                         switch (action.type) {

@@ -7,13 +7,14 @@ import EscapeFromTheOceanPrison from './pages/01';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 // default path / goes to the only comic available at this time
-// TODO: set basename
 const router = createBrowserRouter([
   {
     path: "/",
     element: <EscapeFromTheOceanPrison />,
   }
-]);
+], {
+  basename: import.meta.env.BASE_URL
+});
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
