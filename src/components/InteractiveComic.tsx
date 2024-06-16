@@ -1,5 +1,5 @@
 import { Box, Button, CircularProgress, Container, InputAdornment, TextField, Typography, styled } from "@mui/material"
-import { DestinationAction, InputAction, PageData } from "../types"
+import { Data, DestinationAction, InputAction, PageData } from "../types"
 import React, { useRef, useState } from "react"
 
 const ActionButton = styled(Button)({
@@ -14,13 +14,13 @@ const ActionButton = styled(Button)({
 
 type InteractiveComicProps = {
     pageData: PageData
-    currentFlags: Record<string, boolean>,
+    currentFlags: Data["flags"],
     changePageId: (newPageId: string) => void,
     handleFlagSet: (flag: string) => void,
     restart: () => void
 }
 
-const Loader: React.FC = () => {
+const Loader = () => {
     return (
         <Box display="flex" justifyContent="center" height="100vh" alignItems="center">
             <CircularProgress />

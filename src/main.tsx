@@ -3,14 +3,14 @@ import * as ReactDOM from 'react-dom/client';
 import { ThemeProvider } from '@emotion/react';
 import { CssBaseline } from '@mui/material';
 import theme from './theme';
-import EscapeFromTheOceanPrison from './pages/01';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import PrisonEscape from './pages/PrisonEscape';
 
 // default path / goes to the only comic available at this time
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <EscapeFromTheOceanPrison />,
+    element: <PrisonEscape />,
   }
 ], {
   basename: import.meta.env.BASE_URL

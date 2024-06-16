@@ -72,3 +72,8 @@ export type PageData = {
     image: string,
     actionData: Action[] | EndAction[]
 }
+
+export type Data = {
+    pages: PageData[],
+    flags: Record<string, boolean>
+}

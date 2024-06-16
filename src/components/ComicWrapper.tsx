@@ -1,18 +1,23 @@
-import InteractiveComic from "../components/InteractiveComic"
-import data from "../data/01.json"
-import { PageData } from "../types"
+import InteractiveComic from "./InteractiveComic"
+import { Data, PageData } from "../types"
 import { useState } from "react"
 
-const coverPage = "P00"
-const startPage = "P01"
-const pages = data.pages.reduce((previous: Record<string, PageData>, current) => {
-    const page = current as PageData
+type PagesMap = Record<string, PageData>
+
+export const getPagesMap = (pageData: PageData[]) => pageData.reduce((previous: PagesMap, current) => {
+    const page = current
     previous[page.id] = page
     return previous
 }, {})
-const flags: Record<string, boolean> = data.flags
 
-const EscapeFromTheOceanPrison = () => {
+type ComicWrapperProps = {
+    pages: PagesMap,
+    flags: Data["flags"]
+    coverPage: string,
+    startPage: string
+}
+
+const ComicWrapper: React.FC<ComicWrapperProps> = ({pages, flags, coverPage, startPage}) => {
     const [currentPageId, setCurrentPageId] = useState(coverPage)
     const [currentFlags, setCurrentFlags] = useState(flags)
     const changePageId = (newPageId: string) => {
@@ -25,7 +30,7 @@ const EscapeFromTheOceanPrison = () => {
         })
     }
     const restart = () => {
-        setCurrentFlags(data.flags)
+        setCurrentFlags(flags)
         changePageId(startPage)
     }
     return (
@@ -33,4 +38,4 @@ const EscapeFromTheOceanPrison = () => {
     )
 }
 
-export default EscapeFromTheOceanPrison
+export default ComicWrapper
