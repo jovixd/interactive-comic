@@ -34,6 +34,7 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
     // input field variables
     const [name, setName] = useState('')
     const [isNameInvalid, setIsNameInvalid] = useState(false)
+    const viewer = useRef<HTMLElement>()
 
     const setAndValidateName = (value: string) => {
         setName(value)
@@ -67,12 +68,11 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
         if (isNameInvalid) {
             return
         }
+        // blur the input so the scroll to top works with devices with virtual keyboards
+        viewer.current?.focus()
+
         const nameCleaned = name.trim().toLowerCase()
         const potentialMatch = action.answers.find((answer) => answer.answer === nameCleaned)
-        if (document.activeElement instanceof HTMLElement) {
-            // blur the input so the scroll to top works with devices with virtual keyboards
-            document.activeElement.blur()
-        }
         if (potentialMatch === undefined) {
             handlePageChange(action.defaultAnswer)
         }
@@ -93,8 +93,8 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
         <Container disableGutters maxWidth="md">
             <Box display="flex" flexDirection="column">
                 {loading && <Loader />}
-                <Box component="img" src={pageData.image} onLoad={() => setLoading(false)} display={loading ? "none" : "block"} mb={4} alt={pageData.id} />
-                <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1em' }} m={2} mb={4}>
+                <Box component="img" src={pageData.image} onLoad={() => setLoading(false)} display={loading ? "none" : "block"} mb={4} alt={pageData.id} ref={viewer}/>
+                <Box sx={{ display: loading ? "none" : "grid", gridTemplateColumns: 'repeat(2, 1fr)', gap: '1em' }} m={2} mb={4}>
                     {pageData.actionData.map((action, index) => {
                         switch (action.type) {
                             case "button":
