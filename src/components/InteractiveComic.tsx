@@ -69,6 +69,7 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
         }
         const nameCleaned = name.trim().toLowerCase()
         const potentialMatch = action.answers.find((answer) => answer.answer === nameCleaned)
+        event.currentTarget.blur()
         if (potentialMatch === undefined) {
             handlePageChange(action.defaultAnswer)
         }
