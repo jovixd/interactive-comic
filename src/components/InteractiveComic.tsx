@@ -34,7 +34,6 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
     // input field variables
     const [name, setName] = useState('')
     const [isNameInvalid, setIsNameInvalid] = useState(false)
-    const nameInput = useRef<HTMLInputElement>()
 
     const setAndValidateName = (value: string) => {
         setName(value)
@@ -70,7 +69,10 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
         }
         const nameCleaned = name.trim().toLowerCase()
         const potentialMatch = action.answers.find((answer) => answer.answer === nameCleaned)
-        nameInput.current?.blur()
+        if (document.activeElement instanceof HTMLElement) {
+            // blur the input so the scroll to top works with devices with virtual keyboards
+            document.activeElement.blur()
+        }
         if (potentialMatch === undefined) {
             handlePageChange(action.defaultAnswer)
         }
@@ -106,7 +108,6 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
                                 return (
                                     <Box key={index} component="form" onSubmit={(event) => handleInputSubmit(event, action)} sx={{ gridColumnStart: "span 2" }}>
                                         <TextField fullWidth variant="filled" label={action.label} value={name} 
-                                            inputRef={nameInput}
                                             onInput={(e: React.ChangeEvent<HTMLInputElement>) => setAndValidateName(e.target.value)}
                                             error={isNameInvalid}
                                             helperText={isNameInvalid && "Text cannot be blank"}
