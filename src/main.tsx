@@ -4,7 +4,7 @@ import { ThemeProvider } from '@emotion/react';
 import { CssBaseline } from '@mui/material';
 import theme from './theme';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import PrisonEscape from './pages/PrisonEscape';
+import PrisonEscape from './pages/01PrisonEscape';
 
 // default path / goes to the only comic available at this time
 const router = createBrowserRouter([
