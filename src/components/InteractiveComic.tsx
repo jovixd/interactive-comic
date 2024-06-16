@@ -94,7 +94,7 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
             <Box display="flex" flexDirection="column">
                 {loading && <Loader />}
                 <Box component="img" src={pageData.image} onLoad={() => setLoading(false)} display={loading ? "none" : "block"} mb={4} alt={pageData.id} ref={viewer}/>
-                <Box sx={{ display: loading ? "none" : "grid", gridTemplateColumns: 'repeat(2, 1fr)', gap: '1em' }} m={2} mb={4}>
+                <Box sx={{ display: loading ? "none" : "grid", gridTemplateColumns: 'repeat(2, 1fr)', gap: '1em' }} m={2} mb={6}>
                     {pageData.actionData.map((action, index) => {
                         switch (action.type) {
                             case "button":
