@@ -1,6 +1,6 @@
 import { Box, Button, CircularProgress, Container, InputAdornment, TextField, Typography, styled } from "@mui/material"
 import { DestinationAction, InputAction, PageData } from "../types"
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 
 const ActionButton = styled(Button)({
     borderRadius: "3rem",
@@ -34,6 +34,7 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
     // input field variables
     const [name, setName] = useState('')
     const [isNameInvalid, setIsNameInvalid] = useState(false)
+    const nameInput = useRef<HTMLInputElement>()
 
     const setAndValidateName = (value: string) => {
         setName(value)
@@ -69,7 +70,7 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
         }
         const nameCleaned = name.trim().toLowerCase()
         const potentialMatch = action.answers.find((answer) => answer.answer === nameCleaned)
-        event.currentTarget.blur()
+        nameInput.current?.blur()
         if (potentialMatch === undefined) {
             handlePageChange(action.defaultAnswer)
         }
@@ -104,7 +105,8 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
                             case "input":
                                 return (
                                     <Box key={index} component="form" onSubmit={(event) => handleInputSubmit(event, action)} sx={{ gridColumnStart: "span 2" }}>
-                                        <TextField fullWidth variant="filled" label={action.label} value={name}
+                                        <TextField fullWidth variant="filled" label={action.label} value={name} 
+                                            inputRef={nameInput}
                                             onInput={(e: React.ChangeEvent<HTMLInputElement>) => setAndValidateName(e.target.value)}
                                             error={isNameInvalid}
                                             helperText={isNameInvalid && "Text cannot be blank"}
