@@ -1,0 +1,1372 @@
+{
+    "pages": [
+        {
+            "id": "P00_01",
+            "image": "./02/P00_01.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Begin",
+                    "destinationId": "P00"
+                }
+            ]
+        },
+        {
+            "id": "P00",
+            "image": "./02/P00.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P01"
+                }
+            ]
+        },
+        {
+            "id": "P01",
+            "image": "./02/P01.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P02"
+                }
+            ]
+        },
+        {
+            "id": "P02",
+            "image": "./02/P02.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P03_1"
+                }
+            ]
+        },
+        {
+            "id": "P03_1",
+            "image": "./02/P03_1.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P03_2"
+                }
+            ]
+        },
+        {
+            "id": "P03_2",
+            "image": "./02/P03_2.png",
+            "actionData": [
+                {
+                    "type": "input",
+                    "label": "Enter the name of the fruit you want to eat",
+                    "caption": "I'll have a ___, please!",
+                    "answers": [
+                        {
+                            "answer": "strawberry",
+                            "destinationId": "P04a"
+                        },
+                        {
+                            "answer": "banana",
+                            "destinationId": "P04b"
+                        },
+                        {
+                            "answer": "melon",
+                            "destinationId": "P04c"
+                        },
+                        {
+                            "answer": "kiwi",
+                            "destinationId": "P28a",
+                            "requiredFlag": {
+                                "flag": "metAkaba",
+                                "flagValue": true
+                            }
+                        },
+                        {
+                            "answer": "kiwi",
+                            "destinationId": "P28b",
+                            "requiredFlag": {
+                                "flag": "metLemon",
+                                "flagValue": true
+                            }
+                        },
+                        {
+                            "answer": "kiwi",
+                            "destinationId": "P28c",
+                            "requiredFlag": {
+                                "flag": "metAkaba",
+                                "flagValue": false
+                            }
+                        },
+                        {
+                            "answer": "kiwi",
+                            "destinationId": "P28c",
+                            "requiredFlag": {
+                                "flag": "metLemon",
+                                "flagValue": false
+                            }
+                        }
+                    ],
+                    "defaultAnswer": {
+                        "answer": "default",
+                        "destinationId": "P04d"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "P04a",
+            "image": "./02/P04a.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P05_1"
+                }
+            ],
+            "signal": {
+                "requirement": [
+                    {
+                        "flag": "metAkaba",
+                        "flagValue": true
+                    },
+                    {
+                        "flag": "metLemon",
+                        "flagValue": true
+                    }
+                ],
+                "secondaryImage": "./02/P28shirai.png",
+                "actionData": [
+                    {
+                        "type": "button",
+                        "color": "blue",
+                        "label": "Next",
+                        "destinationId": "P03_2"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "P04b",
+            "image": "./02/P04b.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P05_1"
+                }
+            ],
+            "signal": {
+                "requirement": [
+                    {
+                        "flag": "metAkaba",
+                        "flagValue": true
+                    },
+                    {
+                        "flag": "metLemon",
+                        "flagValue": true
+                    }
+                ],
+                "secondaryImage": "./02/P28shirai.png",
+                "actionData": [
+                    {
+                        "type": "button",
+                        "color": "blue",
+                        "label": "Next",
+                        "destinationId": "P03_2"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "P04c",
+            "image": "./02/P04c.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P05_1"
+                }
+            ],
+            "signal": {
+                "requirement": [
+                    {
+                        "flag": "metAkaba",
+                        "flagValue": true
+                    },
+                    {
+                        "flag": "metLemon",
+                        "flagValue": true
+                    }
+                ],
+                "secondaryImage": "./02/P28shirai.png",
+                "actionData": [
+                    {
+                        "type": "button",
+                        "color": "blue",
+                        "label": "Next",
+                        "destinationId": "P03_2"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "P04d",
+            "image": "./02/P04d.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P05_1"
+                }
+            ],
+            "signal": {
+                "requirement": [
+                    {
+                        "flag": "metAkaba",
+                        "flagValue": true
+                    },
+                    {
+                        "flag": "metLemon",
+                        "flagValue": true
+                    }
+                ],
+                "secondaryImage": "./02/P28shirai.png",
+                "actionData": [
+                    {
+                        "type": "button",
+                        "color": "blue",
+                        "label": "Next",
+                        "destinationId": "P03_2"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "P28a",
+            "image": "./02/P28a.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P29"
+                }
+            ]
+        },
+        {
+            "id": "P28b",
+            "image": "./02/P28b.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P29"
+                }
+            ]
+        },
+        {
+            "id": "P28c",
+            "image": "./02/P28c.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P29"
+                }
+            ]
+        },
+        {
+            "id": "P05_1",
+            "image": "./02/P05_1.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P05_2"
+                }
+            ]
+        },
+        {
+            "id": "P05_2",
+            "image": "./02/P05_2.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P05_3"
+                }
+            ]
+        },
+        {
+            "id": "P05_3",
+            "image": "./02/P05_3.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Let's go to Stiurf Castle!",
+                    "destinationId": "P06a"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Let's recruit party members!",
+                    "destinationId": "P06b"
+                }
+            ]
+        },
+        {
+            "id": "P06b",
+            "image": "./02/P06b.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P11"
+                }
+                
+            ]
+        },
+        {
+            "id": "P06a",
+            "image": "./02/P06a.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P07"
+                }
+                
+            ]
+        },
+        {
+            "id": "P07",
+            "image": "./02/P07.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P08"
+                }
+                
+            ]
+        },
+        {
+            "id": "P08",
+            "image": "./02/P08.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "Fight",
+                    "destinationId": "P09a"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Defend",
+                    "destinationId": "P09c"
+                },
+                {
+                    "type": "button",
+                    "color": "green",
+                    "label": "Run",
+                    "destinationId": "P09b"
+                }
+            ]
+        },
+        {
+            "id": "P09a",
+            "image": "./02/P09a.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P10"
+                }
+            ]
+        },
+        {
+            "id": "P10",
+            "image": "./02/P10.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P05_3"
+                }
+            ]
+        },
+        {
+            "id": "P09b",
+            "image": "./02/P09b.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P10"
+                }
+            ]
+        },
+        {
+            "id": "P09c",
+            "image": "./02/P09c.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P10"
+                }
+            ]
+        },
+        {
+            "id": "P11",
+            "image": "./02/P11.png",
+            "actionData": [
+                {
+                    "type": "input",
+                    "label": "Enter the name of the party member you want",
+                    "caption": "Call ___ over for me.",
+                    "answers": [
+                        {
+                            "answer": "akaba",
+                            "destinationId": "P12a"
+                        },
+                        {
+                            "answer": "lemon",
+                            "destinationId": "P12b"
+                        },
+                        {
+                            "answer": "shirai",
+                            "destinationId": "P12c"
+                        }
+                    ],
+                    "defaultAnswer": {
+                        "answer": "default",
+                        "destinationId": "P12d"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "P12a",
+            "image": "./02/P12a.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P13a",
+                    "setFlag": "metAkaba"
+                }
+            ]
+        },
+        {
+            "id": "P12b",
+            "image": "./02/P12b.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P13b",
+                    "setFlag": "metLemon"
+                }
+            ]
+        },
+        {
+            "id": "P12c",
+            "image": "./02/P12c.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P11"
+                }
+            ]
+        },
+        {
+            "id": "P12d",
+            "image": "./02/P12d.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P11"
+                }
+            ]
+        },
+        {
+            "id": "P13a",
+            "image": "./02/P13a.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "Fight",
+                    "destinationId": "P14a"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Let Akaba handle it",
+                    "destinationId": "P14b"
+                },
+                {
+                    "type": "button",
+                    "color": "green",
+                    "label": "Defend",
+                    "destinationId": "P14c"
+                }
+            ]
+        },
+        {
+            "id": "P14a",
+            "image": "./02/P14a.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P15a"
+                }
+            ]
+        },
+        {
+            "id": "P15a",
+            "image": "./02/P15a.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "Fight",
+                    "destinationId": "P16ab"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Let Akaba handle it",
+                    "destinationId": "P16ab"
+                },
+                {
+                    "type": "button",
+                    "color": "green",
+                    "label": "Defend",
+                    "destinationId": "P16c"
+                }
+            ]
+        },
+        {
+            "id": "P16c",
+            "image": "./02/P16c.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P17a"
+                }
+            ]
+        },
+        {
+            "id": "P14b",
+            "image": "./02/P14b.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P15a"
+                }
+            ]
+        },
+        {
+            "id": "P14c",
+            "image": "./02/P14c.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P13a"
+                }
+            ]
+        },
+        {
+            "id": "P16ab",
+            "image": "./02/P16ab.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P13a"
+                }
+            ]
+        },
+        {
+            "id": "P13b",
+            "image": "./02/P13b.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "Fight",
+                    "destinationId": "P14d"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Let Lemon handle it",
+                    "destinationId": "P14e"
+                },
+                {
+                    "type": "button",
+                    "color": "green",
+                    "label": "Defend",
+                    "destinationId": "P14f"
+                }
+            ]
+        },
+        {
+            "id": "P14d",
+            "image": "./02/P14d.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P15b"
+                }
+            ]
+        },
+        {
+            "id": "P15b",
+            "image": "./02/P15b.jpg",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "Fight",
+                    "destinationId": "P16de"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Let Lemon handle it",
+                    "destinationId": "P16de"
+                },
+                {
+                    "type": "button",
+                    "color": "green",
+                    "label": "Defend",
+                    "destinationId": "P16f"
+                }
+            ]
+        },
+        {
+            "id": "P16f",
+            "image": "./02/P16f.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P17b"
+                }
+            ]
+        },
+        {
+            "id": "P14e",
+            "image": "./02/P14e.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P15b"
+                }
+            ]
+        },
+        {
+            "id": "P14f",
+            "image": "./02/P14f.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P13b"
+                }
+            ]
+        },
+        {
+            "id": "P16de",
+            "image": "./02/P16de.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P13b"
+                }
+            ]
+        },
+        {
+            "id": "P17a",
+            "image": "./02/P17a.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P18a"
+                }
+            ]
+        },
+        {
+            "id": "P18a",
+            "image": "./02/P18a.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P19a_1"
+                }
+            ]
+        },
+        {
+            "id": "P19a_1",
+            "image": "./02/P19a_1.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P19a_2"
+                }
+            ]
+        },
+        {
+            "id": "P19a_2",
+            "image": "./02/P19a_2.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "Fight",
+                    "destinationId": "P20ab"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Let Akaba handle it",
+                    "destinationId": "P20ab"
+                },
+                {
+                    "type": "button",
+                    "color": "green",
+                    "label": "Defend",
+                    "destinationId": "P20c"
+                }
+            ]
+        },
+        {
+            "id": "P20ab",
+            "image": "./02/P20ab.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P19a_2"
+                }
+            ]
+        },
+        {
+            "id": "P20c",
+            "image": "./02/P20c.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "Fight",
+                    "destinationId": "P21a"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Let Akaba handle it",
+                    "destinationId": "P21b"
+                },
+                {
+                    "type": "button",
+                    "color": "green",
+                    "label": "Defend",
+                    "destinationId": "P21c"
+                }
+            ]
+        },
+        {
+            "id": "P21a",
+            "image": "./02/P21a.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P19a_2"
+                }
+            ]
+        },
+        {
+            "id": "P21c",
+            "image": "./02/P21c.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P19a_2"
+                }
+            ]
+        },
+        {
+            "id": "P21b",
+            "image": "./02/P21b.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "Fight",
+                    "destinationId": "P21a"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Let Akaba handle it",
+                    "destinationId": "P21a"
+                },
+                {
+                    "type": "button",
+                    "color": "green",
+                    "label": "Defend",
+                    "destinationId": "P22a"
+                }
+            ]
+        },
+        {
+            "id": "P22a",
+            "image": "./02/P22a.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "Fight",
+                    "destinationId": "P23a_1"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Let Akaba handle it",
+                    "destinationId": "P21a"
+                },
+                {
+                    "type": "button",
+                    "color": "green",
+                    "label": "Defend",
+                    "destinationId": "P21c"
+                }
+            ]
+        },
+        {
+            "id": "P23a_1",
+            "image": "./02/P23a_1.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P23a_2"
+                }
+            ]
+        },
+        {
+            "id": "P23a_2",
+            "image": "./02/P23a_2.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P24a"
+                }
+            ]
+        },
+        {
+            "id": "P24a",
+            "image": "./02/P24a.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P25a"
+                }
+            ]
+        },
+        {
+            "id": "P25a",
+            "image": "./02/P25a.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P26a"
+                }
+            ]
+        },
+        {
+            "id": "P26a",
+            "image": "./02/P26a.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P03_2"
+                }
+            ]
+        },
+        {
+            "id": "P17b",
+            "image": "./02/P17b.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P18b"
+                }
+            ]
+        },
+        {
+            "id": "P18b",
+            "image": "./02/P18b.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P19b_1"
+                }
+            ]
+        },
+        {
+            "id": "P19b_1",
+            "image": "./02/P19b_1.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P19b_2"
+                }
+            ]
+        },
+        {
+            "id": "P19b_2",
+            "image": "./02/P19b_2.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "Fight",
+                    "destinationId": "P20de"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Let Lemon handle it",
+                    "destinationId": "P20de"
+                },
+                {
+                    "type": "button",
+                    "color": "green",
+                    "label": "Defend",
+                    "destinationId": "P20f"
+                }
+            ]
+        },
+        {
+            "id": "P20de",
+            "image": "./02/P20de.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P19b_2"
+                }
+            ]
+        },
+        {
+            "id": "P20f",
+            "image": "./02/P20f.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "Fight",
+                    "destinationId": "P21d"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Let Lemon handle it",
+                    "destinationId": "P21e"
+                },
+                {
+                    "type": "button",
+                    "color": "green",
+                    "label": "Defend",
+                    "destinationId": "P21f"
+                }
+            ]
+        },
+        {
+            "id": "P21d",
+            "image": "./02/P21d.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P19b_2"
+                }
+            ]
+        },
+        {
+            "id": "P21f",
+            "image": "./02/P21f.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P19b_2"
+                }
+            ]
+        },
+        {
+            "id": "P21e",
+            "image": "./02/P21e.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "Fight",
+                    "destinationId": "P21d"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Let Lemon handle it",
+                    "destinationId": "P21d"
+                },
+                {
+                    "type": "button",
+                    "color": "green",
+                    "label": "Defend",
+                    "destinationId": "P22b"
+                }
+            ]
+        },
+        {
+            "id": "P22b",
+            "image": "./02/P22b.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "Fight",
+                    "destinationId": "P23b_1"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Let Lemon handle it",
+                    "destinationId": "P21d"
+                },
+                {
+                    "type": "button",
+                    "color": "green",
+                    "label": "Defend",
+                    "destinationId": "P21f"
+                }
+            ]
+        },
+        {
+            "id": "P23b_1",
+            "image": "./02/P23b_1.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P23b_2"
+                }
+            ]
+        },
+        {
+            "id": "P23b_2",
+            "image": "./02/P23b_2.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P24b"
+                }
+            ]
+        },
+        {
+            "id": "P24b",
+            "image": "./02/P24b.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P25b"
+                }
+            ]
+        },
+        {
+            "id": "P25b",
+            "image": "./02/P25b.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P26b"
+                }
+            ]
+        },
+        {
+            "id": "P26b",
+            "image": "./02/P26b.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P03_2"
+                }
+            ]
+        },
+        {
+            "id": "P29",
+            "image": "./02/P29.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P30"
+                }
+            ]
+        },
+        {
+            "id": "P30",
+            "image": "./02/P30.png",
+            "actionData": [
+                {
+                    "type": "input",
+                    "label": "Enter the name of the party member you want",
+                    "caption": "I choose ____!!",
+                    "answers": [
+                        {
+                            "answer": "akaba",
+                            "destinationId": "P31a"
+                        },
+                        {
+                            "answer": "lemon",
+                            "destinationId": "P31b"
+                        },
+                        {
+                            "answer": "shirai",
+                            "destinationId": "P31c"
+                        }
+                    ],
+                    "defaultAnswer": {
+                        "answer": "default",
+                        "destinationId": "P31d"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "P31a",
+            "image": "./02/P31a.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P32a"
+                }
+            ]
+        },
+        {
+            "id": "P32a",
+            "image": "./02/P32a.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P33a"
+                }
+            ]
+        },
+        {
+            "id": "P33a",
+            "image": "./02/P33a.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P34"
+                }
+            ]
+        },
+        {
+            "id": "P31b",
+            "image": "./02/P31b.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P32b"
+                }
+            ]
+        },
+        {
+            "id": "P32b",
+            "image": "./02/P32b.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P33b"
+                }
+            ]
+        },
+        {
+            "id": "P33b",
+            "image": "./02/P33b.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P34"
+                }
+            ]
+        },
+        {
+            "id": "P31c",
+            "image": "./02/P31c.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P32c"
+                }
+            ]
+        },
+        {
+            "id": "P32c",
+            "image": "./02/P32c.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P33c"
+                }
+            ]
+        },
+        {
+            "id": "P33c",
+            "image": "./02/P33c.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P34"
+                }
+            ]
+        },
+        {
+            "id": "P31d",
+            "image": "./02/P31d.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P30"
+                }
+            ]
+        },
+        {
+            "id": "P34",
+            "image": "./02/P34.png",
+            "actionData": [
+                {
+                    "type": "end",
+                    "label": "THE END"
+                }
+            ]
+        }
+    ],
+    "flags": {
+        "metAkaba": false,
+        "metLemon": false
+    }
+}

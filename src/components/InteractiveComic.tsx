@@ -72,6 +72,7 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
         viewer.current?.focus()
 
         const nameCleaned = name.trim().toLowerCase()
+        // TODO: only get answers that your flags allow
         const potentialMatch = action.answers.find((answer) => answer.answer === nameCleaned)
         if (potentialMatch === undefined) {
             handlePageChange(action.defaultAnswer)
@@ -93,6 +94,7 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
         <Container disableGutters maxWidth="md">
             <Box display="flex" flexDirection="column">
                 {loading && <Loader />}
+                {/* TODO: add support for secondary image */}
                 <Box component="img" src={pageData.image} onLoad={() => setLoading(false)} display={loading ? "none" : "block"} mb={4} alt={pageData.id} ref={viewer}/>
                 <Box sx={{ display: loading ? "none" : "grid", gridTemplateColumns: 'repeat(2, 1fr)', gap: '1em' }} m={2} mb={6}>
                     {pageData.actionData.map((action, index) => {
@@ -105,6 +107,7 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
                                     </React.Fragment>
                                 )
                             case "input":
+                                // TODO: add caption
                                 return (
                                     <Box key={index} component="form" onSubmit={(event) => handleInputSubmit(event, action)} sx={{ gridColumnStart: "span 2" }}>
                                         <TextField fullWidth variant="filled" label={action.label} value={name} 

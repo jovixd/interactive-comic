@@ -34,12 +34,14 @@ declare module '@mui/material/Button' {
     Player actions
 */
 
+export type RequiredFlag = {
+    flag: string
+    flagValue: boolean
+}
+
 export type DestinationAction = {
     destinationId: string
-    requiredFlag?: {
-        flag: string
-        flagValue: boolean
-    }
+    requiredFlag?: RequiredFlag
     setFlag?: string
 }
 
@@ -50,27 +52,34 @@ type ButtonAction = DestinationAction & {
 }
 
 type InputAnswer = DestinationAction & {
-    answer: string
+    answer: string | "default"
 }
 
 export type InputAction = {
     label: string,
     type: "input",
-    answers: InputAnswer[] 
-    defaultAnswer: InputAnswer
+    answers: InputAnswer[],
+    defaultAnswer: InputAnswer,
+    caption?: string
 }
-
-type Action = ButtonAction | InputAction
 
 type EndAction = {
     label: string,
     type: "end"
 }
 
+type Action = ButtonAction | InputAction | EndAction
+
 export type PageData = {
     id: string,
     image: string,
-    actionData: Action[] | EndAction[]
+    actionData: Action[]
+    signal?: {
+        // allows a secondary image and new actions to be added if criteria (i.e. any flags; not implemented: swiping on a key item) is met
+        requirement: RequiredFlag[]
+        secondaryImage: string,
+        actionData: Action[]
+    }
 }
 
 export type Data = {
