@@ -5,12 +5,21 @@ import { CssBaseline } from '@mui/material';
 import theme from './theme';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import PrisonEscape from './pages/01PrisonEscape';
+import IsekaiQuest from './pages/02IsekaiQuest';
 
-// default path / goes to the only comic available at this time
+// TODO: fancier 404 page
 const router = createBrowserRouter([
   {
     path: "/",
     element: <PrisonEscape />,
+  },
+  {
+    path: "/01-prison-escape",
+    element: <PrisonEscape />,
+  },
+  {
+    path: "/02-isekai-quest",
+    element: <IsekaiQuest />,
   }
 ], {
   basename: import.meta.env.BASE_URL

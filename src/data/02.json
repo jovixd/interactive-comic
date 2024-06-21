@@ -319,7 +319,7 @@
             "actionData": [
                 {
                     "type": "button",
-                    "color": "blue",
+                    "color": "orange",
                     "label": "Let's go to Stiurf Castle!",
                     "destinationId": "P06a"
                 },

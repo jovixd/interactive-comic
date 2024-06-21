@@ -72,8 +72,8 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
         viewer.current?.focus()
 
         const nameCleaned = name.trim().toLowerCase()
-        // TODO: only get answers that your flags allow
-        const potentialMatch = action.answers.find((answer) => answer.answer === nameCleaned)
+        const availableAnswers = action.answers.filter((answer) => isActionAvailable(answer))
+        const potentialMatch = availableAnswers.find((answer) => answer.answer === nameCleaned) // finds the FIRST match
         if (potentialMatch === undefined) {
             handlePageChange(action.defaultAnswer)
         }
@@ -82,7 +82,7 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
         }
     }
 
-    const isVisibleButton = (action: DestinationAction) => {
+    const isActionAvailable = (action: DestinationAction) => {
         const requiredFlag = action?.requiredFlag
         if (requiredFlag === undefined || currentFlags[requiredFlag.flag] === requiredFlag.flagValue) {
             return true
@@ -95,32 +95,35 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
             <Box display="flex" flexDirection="column">
                 {loading && <Loader />}
                 {/* TODO: add support for secondary image */}
-                <Box component="img" src={pageData.image} onLoad={() => setLoading(false)} display={loading ? "none" : "block"} mb={4} alt={pageData.id} ref={viewer}/>
+                <Box component="img" src={pageData.image} onLoad={() => setLoading(false)} display={loading ? "none" : "block"} mb={4} alt={pageData.id} ref={viewer} />
                 <Box sx={{ display: loading ? "none" : "grid", gridTemplateColumns: 'repeat(2, 1fr)', gap: '1em' }} m={2} mb={6}>
                     {pageData.actionData.map((action, index) => {
                         switch (action.type) {
                             case "button":
                                 return (
                                     <React.Fragment key={index}>
-                                        {isVisibleButton(action) &&
+                                        {isActionAvailable(action) &&
                                             <ActionButton onClick={() => handlePageChange(action)} fullWidth disableElevation size="large" variant="contained" color={action.color}>{action.label}</ActionButton>}
                                     </React.Fragment>
                                 )
                             case "input":
-                                // TODO: add caption
+                                // TODO: label is too long
                                 return (
-                                    <Box key={index} component="form" onSubmit={(event) => handleInputSubmit(event, action)} sx={{ gridColumnStart: "span 2" }}>
-                                        <TextField fullWidth variant="filled" label={action.label} value={name} 
-                                            onInput={(e: React.ChangeEvent<HTMLInputElement>) => setAndValidateName(e.target.value)}
-                                            error={isNameInvalid}
-                                            helperText={isNameInvalid && "Text cannot be blank"}
-                                            InputProps={{
-                                                sx: { height: "4.5em" },
-                                                endAdornment: <InputAdornment position="end">
-                                                    <Button type="submit">Submit</Button>
-                                                </InputAdornment>
-                                            }} />
-                                    </Box>
+                                    <React.Fragment key={index}>
+                                        {action.caption && <Typography variant="h5" textAlign="center" sx={{ gridColumnStart: "span 2" }} mb={4}>{action.caption}</Typography>}
+                                        <Box component="form" onSubmit={(event) => handleInputSubmit(event, action)} sx={{ gridColumnStart: "span 2" }}>
+                                            <TextField fullWidth variant="filled" label={action.label} value={name}
+                                                onInput={(e: React.ChangeEvent<HTMLInputElement>) => setAndValidateName(e.target.value)}
+                                                error={isNameInvalid}
+                                                helperText={isNameInvalid && "Text cannot be blank"}
+                                                InputProps={{
+                                                    sx: { height: "4.5em" },
+                                                    endAdornment: <InputAdornment position="end">
+                                                        <Button type="submit">Submit</Button>
+                                                    </InputAdornment>
+                                                }} />
+                                        </Box>
+                                    </React.Fragment>
                                 )
                             case "end":
                                 return (
