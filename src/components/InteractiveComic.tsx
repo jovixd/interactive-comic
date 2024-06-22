@@ -107,20 +107,19 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
                                     </React.Fragment>
                                 )
                             case "input":
-                                // TODO: label is too long
                                 return (
                                     <React.Fragment key={index}>
                                         {action.caption && <Typography variant="h5" textAlign="center" sx={{ gridColumnStart: "span 2" }} mb={4}>{action.caption}</Typography>}
                                         <Box component="form" onSubmit={(event) => handleInputSubmit(event, action)} sx={{ gridColumnStart: "span 2" }}>
-                                            <TextField fullWidth variant="filled" label={action.label} value={name}
+                                            <TextField fullWidth variant="filled" label={action.label} value={name} id="nameInput"
                                                 onInput={(e: React.ChangeEvent<HTMLInputElement>) => setAndValidateName(e.target.value)}
                                                 error={isNameInvalid}
                                                 helperText={isNameInvalid && "Text cannot be blank"}
                                                 InputProps={{
                                                     sx: { height: "4.5em" },
-                                                    endAdornment: <InputAdornment position="end">
-                                                        <Button type="submit">Submit</Button>
-                                                    </InputAdornment>
+                                                    endAdornment: name ? <InputAdornment position="end">
+                                                    <Button type="submit">Submit</Button>
+                                                </InputAdornment> : null
                                                 }} />
                                         </Box>
                                     </React.Fragment>
