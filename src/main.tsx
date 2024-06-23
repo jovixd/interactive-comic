@@ -3,28 +3,9 @@ import * as ReactDOM from 'react-dom/client';
 import { ThemeProvider } from '@emotion/react';
 import { CssBaseline } from '@mui/material';
 import theme from './theme.js';
-// import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import PrisonEscape from './pages/01PrisonEscape.js';
 import IsekaiQuest from './pages/02IsekaiQuest.js';
-import { createRootRoute, createRoute, createRouter, Link, Outlet, RouterProvider } from '@tanstack/react-router';
-
-// TODO: fancier 404 page
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <PrisonEscape />,
-//   },
-//   {
-//     path: "/01-prison-escape",
-//     element: <PrisonEscape />,
-//   },
-//   {
-//     path: "/02-isekai-quest",
-//     element: <IsekaiQuest />,
-//   }
-// ], {
-//   basename: import.meta.env.BASE_URL
-// });
+import { createRootRoute, createRoute, createRouter, Link, NotFoundRoute, Outlet, RouterProvider } from '@tanstack/react-router';
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -76,7 +57,7 @@ const isekaiQuestRoute = createRoute({
 
 const routeTree = rootRoute.addChildren([indexRoute, isekaiQuestRoute, prisonEscapeRoute])
 
-const router = createRouter({ routeTree })
+const router = createRouter({ routeTree, basepath: import.meta.env.BASE_URL })
 
 // Register the router instance for type safety
 declare module '@tanstack/react-router' {
@@ -85,26 +66,12 @@ declare module '@tanstack/react-router' {
   }
 }
 
-// ReactDOM.createRoot(document.getElementById('root')!).render(
-//   <React.StrictMode>
-//     <ThemeProvider theme={theme}>
-//       <CssBaseline>
-//         <RouterProvider router={router} />
-//       </CssBaseline>
-//     </ThemeProvider>
-//   </React.StrictMode>,
-// );
-
-const rootElement = document.getElementById('root')!
-if (!rootElement.innerHTML) {
-  const root = ReactDOM.createRoot(rootElement)
-  root.render(
-    <React.StrictMode>
-      <ThemeProvider theme={theme}>
-        <CssBaseline>
-          <RouterProvider router={router} />
-        </CssBaseline>
-      </ThemeProvider>
-    </React.StrictMode>,
-  )
-}
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <ThemeProvider theme={theme}>
+      <CssBaseline>
+        <RouterProvider router={router} />
+      </CssBaseline>
+    </ThemeProvider>
+  </React.StrictMode>,
+);
