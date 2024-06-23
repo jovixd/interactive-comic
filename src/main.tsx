@@ -6,7 +6,7 @@ import theme from './theme.js';
 // import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import PrisonEscape from './pages/01PrisonEscape.js';
 import IsekaiQuest from './pages/02IsekaiQuest.js';
-import { createRouter, RouterProvider } from '@tanstack/react-router';
+import { createRootRoute, createRoute, createRouter, Link, Outlet, RouterProvider } from '@tanstack/react-router';
 
 // TODO: fancier 404 page
 // const router = createBrowserRouter([
@@ -26,10 +26,56 @@ import { createRouter, RouterProvider } from '@tanstack/react-router';
 //   basename: import.meta.env.BASE_URL
 // });
 
-// Import the generated route tree
-import { routeTree } from './routeTree.gen.js'
+const rootRoute = createRootRoute({
+  component: () => (
+    <>
+      <div className="p-2 flex gap-2">
+        <Link to="/" className="[&.active]:font-bold">
+          Home
+        </Link>{' '}
+        <Link to="/01-prison-escape" className="[&.active]:font-bold">
+          Prison Escape
+        </Link>{' '}
+        <Link to="/02-isekai-quest" className="[&.active]:font-bold">
+          Isekai Quest
+        </Link>
+      </div>
+      <hr />
+      <Outlet />
+    </>
+  ),
+})
 
-// Create a new router instance
+const indexRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/',
+  component: function Index() {
+    return (
+      <div className="p-2">
+        <h3>Interactive comics</h3>
+      </div>
+    )
+  },
+})
+
+const prisonEscapeRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/01-prison-escape',
+  component: function PrisonEscapeRoute() {
+    return <PrisonEscape/>
+  },
+})
+
+const isekaiQuestRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/02-isekai-quest',
+  component: function IsekaiQuestRoute() {
+    return <IsekaiQuest/>
+  },
+})
+
+const routeTree = rootRoute.addChildren([indexRoute, isekaiQuestRoute, prisonEscapeRoute])
+
 const router = createRouter({ routeTree })
 
 // Register the router instance for type safety
