@@ -59,7 +59,7 @@ const routeTree = rootRoute.addChildren([indexRoute, isekaiQuestRoute, prisonEsc
 
 const hashHistory = createHashHistory()
 
-const router = createRouter({ routeTree, history: hashHistory, basepath: import.meta.env.BASE_URL })
+const router = createRouter({ routeTree, history: hashHistory})
 
 // Register the router instance for type safety
 declare module '@tanstack/react-router' {
