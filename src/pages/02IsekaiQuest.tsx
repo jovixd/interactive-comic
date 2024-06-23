@@ -1,6 +1,6 @@
-import ComicWrapper, { getPagesMap } from "../components/ComicWrapper"
+import ComicWrapper, { getPagesMap } from "../components/ComicWrapper.js"
 import data from "../data/02.json"
-import { Data } from "../types"
+import { Data } from "../types.js"
 
 const comicData = data as Data
 

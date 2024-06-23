@@ -1,5 +1,5 @@
-import InteractiveComic from "./InteractiveComic"
-import { Data, PageData } from "../types"
+import InteractiveComic from "./InteractiveComic.js"
+import { Data, PageData } from "../types.js"
 import { useState } from "react"
 
 type PagesMap = Record<string, PageData>

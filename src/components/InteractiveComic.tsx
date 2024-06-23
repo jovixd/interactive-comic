@@ -1,5 +1,5 @@
 import { Box, Button, CircularProgress, Container, InputAdornment, TextField, Typography, styled } from "@mui/material"
-import { Data, DestinationAction, InputAction, InputAnswer, PageData } from "../types"
+import { Data, DestinationAction, InputAction, InputAnswer, PageData } from "../types.js"
 import React, { useRef, useState } from "react"
 
 const ActionButton = styled(Button)({
