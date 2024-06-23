@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(() => {
   const useGithubActions = process.env.VITE_USE_GITHUB_ACTIONS
   return {
-    base: useGithubActions ? '/interactive-comic' : '/',
+    base: useGithubActions ? '/interactive-comic/' : '/',
     plugins: [react()]
   }
 });
