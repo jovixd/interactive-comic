@@ -6,10 +6,7 @@ const comicData = data as Data
 
 const PrisonEscape = () => {
     return (
-        <>
-            <span>{import.meta.env.BASE_URL}</span>
-            <ComicWrapper pages={getPagesMap(comicData.pages)} flags={comicData.flags} coverPage="P00" startPage="P01" />
-        </>
+        <ComicWrapper pages={getPagesMap(comicData.pages)} flags={comicData.flags} coverPage="P00" startPage="P01" />
     )
 }
 
