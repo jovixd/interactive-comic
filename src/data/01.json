@@ -53,10 +53,12 @@
                             "destinationId": "P29"
                         }
                     ],
-                    "defaultAnswer": {
-                        "answer": "default",
-                        "destinationId": "P03E"
-                    }
+                    "defaultAnswers": [
+                        {
+                            "answer": "default",
+                            "destinationId": "P03E"
+                        }
+                    ]
                 }
             ]
         },

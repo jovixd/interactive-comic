@@ -74,12 +74,64 @@
                             "destinationId": "P04a"
                         },
                         {
+                            "answer": "strawberry",
+                            "destinationId": "P04a_shirai",
+                            "requiredFlag": {
+                                "flag": "metAkaba",
+                                "flagValue": true
+                            }
+                        },
+                        {
+                            "answer": "strawberry",
+                            "destinationId": "P04a_shirai",
+                            "requiredFlag": {
+                                "flag": "metLemon",
+                                "flagValue": true
+                            }
+                        },
+                        {
                             "answer": "banana",
                             "destinationId": "P04b"
                         },
                         {
+                            "answer": "banana",
+                            "destinationId": "P04b_shirai",
+                            "requiredFlag": {
+                                "flag": "metAkaba",
+                                "flagValue": true
+                            }
+                        },
+                        {
+                            "answer": "banana",
+                            "destinationId": "P04b_shirai",
+                            "requiredFlag": {
+                                "flag": "metLemon",
+                                "flagValue": true
+                            }
+                        },
+                        {
                             "answer": "melon",
                             "destinationId": "P04c"
+                        },
+                        {
+                            "answer": "melon",
+                            "destinationId": "P04c_shirai",
+                            "requiredFlag": {
+                                "flag": "metAkaba",
+                                "flagValue": true
+                            }
+                        },
+                        {
+                            "answer": "melon",
+                            "destinationId": "P04c_shirai",
+                            "requiredFlag": {
+                                "flag": "metLemon",
+                                "flagValue": true
+                            }
+                        },
+                        {
+                            "answer": "kiwi",
+                            "destinationId": "P28c"
                         },
                         {
                             "answer": "kiwi",
@@ -96,28 +148,30 @@
                                 "flag": "metLemon",
                                 "flagValue": true
                             }
-                        },
-                        {
-                            "answer": "kiwi",
-                            "destinationId": "P28c",
-                            "requiredFlag": {
-                                "flag": "metAkaba",
-                                "flagValue": false
-                            }
-                        },
-                        {
-                            "answer": "kiwi",
-                            "destinationId": "P28c",
-                            "requiredFlag": {
-                                "flag": "metLemon",
-                                "flagValue": false
-                            }
                         }
                     ],
-                    "defaultAnswer": {
-                        "answer": "default",
-                        "destinationId": "P04d"
-                    }
+                    "defaultAnswers": [
+                        {
+                            "answer": "default",
+                            "destinationId": "P04d"
+                        },
+                        {
+                            "answer": "default",
+                            "destinationId": "P04d_shirai",
+                            "requiredFlag": {
+                                "flag": "metAkaba",
+                                "flagValue": true
+                            }
+                        },
+                        {
+                            "answer": "default",
+                            "destinationId": "P04d_shirai",
+                            "requiredFlag": {
+                                "flag": "metLemon",
+                                "flagValue": true
+                            }
+                        }
+                    ]
                 }
             ]
         },
@@ -131,29 +185,20 @@
                     "label": "Next",
                     "destinationId": "P05_1"
                 }
-            ],
-            "signal": {
-                "requirement": [
-                    {
-                        "flag": "metAkaba",
-                        "flagValue": true
-                    },
-                    {
-                        "flag": "metLemon",
-                        "flagValue": true
-                    }
-                ],
-                "secondaryImage": "./02/P28shirai.png",
-                "actionData": [
-                    {
-                        "type": "button",
-                        "color": "blue",
-                        "label": "Next",
-                        "destinationId": "P03_2"
-                    }
-                ]
-            }
+            ]
         },
+        {
+            "id": "P04a_shirai",
+            "image": "./02/P04a_shirai.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P03_2"
+                }
+            ]
+        }, 
         {
             "id": "P04b",
             "image": "./02/P04b.png",
@@ -164,29 +209,20 @@
                     "label": "Next",
                     "destinationId": "P05_1"
                 }
-            ],
-            "signal": {
-                "requirement": [
-                    {
-                        "flag": "metAkaba",
-                        "flagValue": true
-                    },
-                    {
-                        "flag": "metLemon",
-                        "flagValue": true
-                    }
-                ],
-                "secondaryImage": "./02/P28shirai.png",
-                "actionData": [
-                    {
-                        "type": "button",
-                        "color": "blue",
-                        "label": "Next",
-                        "destinationId": "P03_2"
-                    }
-                ]
-            }
+            ]
         },
+        {
+            "id": "P04b_shirai",
+            "image": "./02/P04b_shirai.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P03_2"
+                }
+            ]
+        }, 
         {
             "id": "P04c",
             "image": "./02/P04c.png",
@@ -197,29 +233,20 @@
                     "label": "Next",
                     "destinationId": "P05_1"
                 }
-            ],
-            "signal": {
-                "requirement": [
-                    {
-                        "flag": "metAkaba",
-                        "flagValue": true
-                    },
-                    {
-                        "flag": "metLemon",
-                        "flagValue": true
-                    }
-                ],
-                "secondaryImage": "./02/P28shirai.png",
-                "actionData": [
-                    {
-                        "type": "button",
-                        "color": "blue",
-                        "label": "Next",
-                        "destinationId": "P03_2"
-                    }
-                ]
-            }
+            ]
         },
+        {
+            "id": "P04c_shirai",
+            "image": "./02/P04c_shirai.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P03_2"
+                }
+            ]
+        }, 
         {
             "id": "P04d",
             "image": "./02/P04d.png",
@@ -230,29 +257,20 @@
                     "label": "Next",
                     "destinationId": "P05_1"
                 }
-            ],
-            "signal": {
-                "requirement": [
-                    {
-                        "flag": "metAkaba",
-                        "flagValue": true
-                    },
-                    {
-                        "flag": "metLemon",
-                        "flagValue": true
-                    }
-                ],
-                "secondaryImage": "./02/P28shirai.png",
-                "actionData": [
-                    {
-                        "type": "button",
-                        "color": "blue",
-                        "label": "Next",
-                        "destinationId": "P03_2"
-                    }
-                ]
-            }
+            ]
         },
+        {
+            "id": "P04d_shirai",
+            "image": "./02/P04d_shirai.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P03_2"
+                }
+            ]
+        }, 
         {
             "id": "P28a",
             "image": "./02/P28a.png",
@@ -464,10 +482,12 @@
                             "destinationId": "P12c"
                         }
                     ],
-                    "defaultAnswer": {
-                        "answer": "default",
-                        "destinationId": "P12d"
-                    }
+                    "defaultAnswers": [
+                        {
+                            "answer": "default",
+                            "destinationId": "P12d"
+                        }
+                    ]
                 }
             ]
         },
@@ -1227,10 +1247,12 @@
                             "destinationId": "P31c"
                         }
                     ],
-                    "defaultAnswer": {
-                        "answer": "default",
-                        "destinationId": "P31d"
-                    }
+                    "defaultAnswers": [
+                        {
+                            "answer": "default",
+                            "destinationId": "P31d"
+                        }
+                    ]
                 }
             ]
         },

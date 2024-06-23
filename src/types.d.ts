@@ -59,7 +59,7 @@ export type InputAction = {
     label: string,
     type: "input",
     answers: InputAnswer[],
-    defaultAnswer: InputAnswer,
+    defaultAnswers: InputAnswer[],
     caption?: string
 }
 

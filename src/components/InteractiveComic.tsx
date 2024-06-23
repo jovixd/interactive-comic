@@ -1,5 +1,5 @@
 import { Box, Button, CircularProgress, Container, InputAdornment, TextField, Typography, styled } from "@mui/material"
-import { Data, DestinationAction, InputAction, PageData } from "../types"
+import { Data, DestinationAction, InputAction, InputAnswer, PageData } from "../types"
 import React, { useRef, useState } from "react"
 
 const ActionButton = styled(Button)({
@@ -36,21 +36,15 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
     const [isNameInvalid, setIsNameInvalid] = useState(false)
     const viewer = useRef<HTMLElement>()
 
-    const setAndValidateName = (value: string) => {
-        setName(value)
-        if (value.trim().toLowerCase().length === 0) {
-            setIsNameInvalid(true)
-        }
-        else {
-            setIsNameInvalid(false)
-        }
-    }
-
     const handlePageChange = (action: DestinationAction) => {
         // show loader... only to hide the instant scroll
         setLoading(true)
         // send player to the top
         window.scrollTo(0, 0)
+        // clear input field of the saved value
+        if (name.length !== 0) {
+            setName("")
+        }
         // set any required flags, or reset flags and page if we're restarting
         if (action?.setFlag) {
             handleFlagSet(action.setFlag)
@@ -63,24 +57,6 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
             changePageId(action.destinationId)
         }
     }
-    const handleInputSubmit = (event: React.FormEvent<HTMLFormElement>, action: InputAction) => {
-        event.preventDefault()
-        if (isNameInvalid) {
-            return
-        }
-        // blur the input so the scroll to top works with devices with virtual keyboards
-        viewer.current?.focus()
-
-        const nameCleaned = name.trim().toLowerCase()
-        const availableAnswers = action.answers.filter((answer) => isActionAvailable(answer))
-        const potentialMatch = availableAnswers.find((answer) => answer.answer === nameCleaned) // finds the FIRST match
-        if (potentialMatch === undefined) {
-            handlePageChange(action.defaultAnswer)
-        }
-        else {
-            handlePageChange(potentialMatch)
-        }
-    }
 
     const isActionAvailable = (action: DestinationAction) => {
         const requiredFlag = action?.requiredFlag
@@ -90,11 +66,47 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
         return false
     }
 
+    const setAndValidateName = (value: string) => {
+        setName(value)
+        if (value.trim().toLowerCase().length === 0) {
+            setIsNameInvalid(true)
+        }
+        else {
+            setIsNameInvalid(false)
+        }
+    }
+    const findInputDestination = ((answers: InputAnswer[], name: string | "default") => {
+        const nameCleaned = name.trim().toLowerCase()
+        const availableAnswers = answers.filter((answer) => isActionAvailable(answer))
+        
+        // additional filter where actions that needed a required flag are prioritized
+        const prioritizedAnswers = availableAnswers.filter((answer) => answer?.requiredFlag)
+        const answersToMatch = prioritizedAnswers.length === 0 ? availableAnswers : prioritizedAnswers
+        
+        return answersToMatch.find((answer) => answer.answer === nameCleaned)
+    })
+    const handleInputSubmit = (event: React.FormEvent<HTMLFormElement>, action: InputAction) => {
+        event.preventDefault()
+        if (isNameInvalid) {
+            return
+        }
+        // blur the input so the scroll to top works with devices with virtual keyboards
+        viewer.current?.focus()
+
+        const potentialMatch = findInputDestination(action.answers, name)
+        if (potentialMatch === undefined) {
+            const defaultMatch = findInputDestination(action.defaultAnswers, "default") as DestinationAction
+            handlePageChange(defaultMatch)
+        }
+        else {
+            handlePageChange(potentialMatch)
+        }
+    }
+
     return (
         <Container disableGutters maxWidth="md">
             <Box display="flex" flexDirection="column">
                 {loading && <Loader />}
-                {/* TODO: add support for secondary image */}
                 <Box component="img" src={pageData.image} onLoad={() => setLoading(false)} display={loading ? "none" : "block"} mb={4} alt={pageData.id} ref={viewer} />
                 <Box sx={{ display: loading ? "none" : "grid", gridTemplateColumns: 'repeat(2, 1fr)', gap: '1em' }} m={2} mb={6}>
                     {pageData.actionData.map((action, index) => {
