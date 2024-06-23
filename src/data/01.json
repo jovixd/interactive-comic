@@ -2,7 +2,7 @@
     "pages": [
         {
             "id": "P00",
-            "image": "./01/P00.jpg",
+            "image": "./01/P00.png",
             "actionData": [
                 {
                     "type": "button",
@@ -14,7 +14,7 @@
         },
         {
             "id": "P01",
-            "image": "./01/P01.jpg",
+            "image": "./01/P01.png",
             "actionData": [
                 {
                     "type": "button",
@@ -26,7 +26,7 @@
         },
         {
             "id": "P02",
-            "image": "./01/P02.jpg",
+            "image": "./01/P02.png",
             "actionData": [
                 {
                     "type": "button",
@@ -38,7 +38,7 @@
         },
         {
             "id": "P02_1",
-            "image": "./01/P02_1.jpg",
+            "image": "./01/P02_1.png",
             "actionData": [
                 {
                     "type": "input",
@@ -64,7 +64,7 @@
         },
         {
             "id": "P03",
-            "image": "./01/P03.jpg",
+            "image": "./01/P03.png",
             "actionData": [
                 {
                     "type": "button",
@@ -82,7 +82,7 @@
         },
         {
             "id": "P04",
-            "image": "./01/P04.jpg",
+            "image": "./01/P04.png",
             "actionData": [
                 {
                     "type": "button",
@@ -94,7 +94,7 @@
         },
         {
             "id": "P05",
-            "image": "./01/P05.jpg",
+            "image": "./01/P05.png",
             "actionData": [
                 {
                     "type": "button",
@@ -106,7 +106,7 @@
         },
         {
             "id": "P29",
-            "image": "./01/P29.jpg",
+            "image": "./01/P29.png",
             "actionData": [
                 {
                     "type": "button",
@@ -118,7 +118,7 @@
         },
         {
             "id": "P03E",
-            "image": "./01/P03E.jpg",
+            "image": "./01/P03E.png",
             "actionData": [
                 {
                     "type": "button",
@@ -130,7 +130,7 @@
         },
         {
             "id": "P06",
-            "image": "./01/P06.jpg",
+            "image": "./01/P06.png",
             "actionData": [
                 {
                     "type": "button",
@@ -142,7 +142,7 @@
         },
         {
             "id": "P07",
-            "image": "./01/P07.jpg",
+            "image": "./01/P07.png",
             "actionData": [
                 {
                     "type": "button",
@@ -154,7 +154,7 @@
         },
         {
             "id": "P07_1",
-            "image": "./01/P07_1.jpg",
+            "image": "./01/P07_1.png",
             "actionData": [
                 {
                     "type": "button",
@@ -192,7 +192,7 @@
         },
         {
             "id": "P08",
-            "image": "./01/P08.jpg",
+            "image": "./01/P08.png",
             "actionData": [
                 {
                     "type": "button",
@@ -214,7 +214,7 @@
         },
         {
             "id": "P08_1",
-            "image": "./01/P08_1.jpg",
+            "image": "./01/P08_1.png",
             "actionData": [
                 {
                     "type": "button",
@@ -227,7 +227,7 @@
         },
         {
             "id": "P11",
-            "image": "./01/P11.jpg",
+            "image": "./01/P11.png",
             "actionData": [
                 {
                     "type": "button",
@@ -239,7 +239,7 @@
         },
         {
             "id": "P09",
-            "image": "./01/P09.jpg",
+            "image": "./01/P09.png",
             "actionData": [
                 {
                     "type": "button",
@@ -251,7 +251,7 @@
         },
         {
             "id": "P10",
-            "image": "./01/P10.jpg",
+            "image": "./01/P10.png",
             "actionData": [
                 {
                     "type": "button",
@@ -263,7 +263,7 @@
         },
         {
             "id": "P32",
-            "image": "./01/P32.jpg",
+            "image": "./01/P32.png",
             "actionData": [
                 {
                     "type": "button",
@@ -287,7 +287,7 @@
         },
         {
             "id": "P13",
-            "image": "./01/P13.jpg",
+            "image": "./01/P13.png",
             "actionData": [
                 {
                     "type": "button",
@@ -299,7 +299,7 @@
         },
         {
             "id": "P12",
-            "image": "./01/P12.jpg",
+            "image": "./01/P12.png",
             "actionData": [
                 {
                     "type": "button",
@@ -311,7 +311,7 @@
         },
         {
             "id": "P14",
-            "image": "./01/P14.jpg",
+            "image": "./01/P14.png",
             "actionData": [
                 {
                     "type": "button",
@@ -323,7 +323,7 @@
         },
         {
             "id": "P15",
-            "image": "./01/P15.jpg",
+            "image": "./01/P15.png",
             "actionData": [
                 {
                     "type": "button",
@@ -347,7 +347,7 @@
         },
         {
             "id": "P16A",
-            "image": "./01/P16A.jpg",
+            "image": "./01/P16A.png",
             "actionData": [
                 {
                     "type": "button",
@@ -359,7 +359,7 @@
         },
         {
             "id": "P16B",
-            "image": "./01/P16B.jpg",
+            "image": "./01/P16B.png",
             "actionData": [
                 {
                     "type": "button",
@@ -371,7 +371,7 @@
         },
         {
             "id": "P17",
-            "image": "./01/P17.jpg",
+            "image": "./01/P17.png",
             "actionData": [
                 {
                     "type": "button",
@@ -395,7 +395,7 @@
         },
         {
             "id": "P19",
-            "image": "./01/P19.jpg",
+            "image": "./01/P19.png",
             "actionData": [
                 {
                     "type": "button",
@@ -419,7 +419,7 @@
         },
         {
             "id": "P20",
-            "image": "./01/P20.jpg",
+            "image": "./01/P20.png",
             "actionData": [
                 {
                     "type": "button",
@@ -431,7 +431,7 @@
         },
         {
             "id": "P18A",
-            "image": "./01/P18A.jpg",
+            "image": "./01/P18A.png",
             "actionData": [
                 {
                     "type": "button",
@@ -443,7 +443,7 @@
         },
         {
             "id": "P18B",
-            "image": "./01/P18B.jpg",
+            "image": "./01/P18B.png",
             "actionData": [
                 {
                     "type": "button",
@@ -455,7 +455,7 @@
         },
         {
             "id": "P21",
-            "image": "./01/P21.jpg",
+            "image": "./01/P21.png",
             "actionData": [
                 {
                     "type": "button",
@@ -467,7 +467,7 @@
         },
         {
             "id": "P21_1",
-            "image": "./01/P21_1.jpg",
+            "image": "./01/P21_1.png",
             "actionData": [
                 {
                     "type": "button",
@@ -491,7 +491,7 @@
         },
         {
             "id": "P22",
-            "image": "./01/P22.jpg",
+            "image": "./01/P22.png",
             "actionData": [
                 {
                     "type": "button",
@@ -503,7 +503,7 @@
         },
         {
             "id": "P26A",
-            "image": "./01/P26A.jpg",
+            "image": "./01/P26A.png",
             "actionData": [
                 {
                     "type": "button",
@@ -515,7 +515,7 @@
         },
         {
             "id": "P27A",
-            "image": "./01/P27A.jpg",
+            "image": "./01/P27A.png",
             "actionData": [
                 {
                     "type": "button",
@@ -527,7 +527,7 @@
         },
         {
             "id": "P23",
-            "image": "./01/P23.jpg",
+            "image": "./01/P23.png",
             "actionData": [
                 {
                     "type": "button",
@@ -539,7 +539,7 @@
         },
         {
             "id": "P26B",
-            "image": "./01/P26B.jpg",
+            "image": "./01/P26B.png",
             "actionData": [
                 {
                     "type": "button",
@@ -551,7 +551,7 @@
         },
         {
             "id": "P27B",
-            "image": "./01/P27B.jpg",
+            "image": "./01/P27B.png",
             "actionData": [
                 {
                     "type": "button",
@@ -563,7 +563,7 @@
         },
         {
             "id": "P24",
-            "image": "./01/P24.jpg",
+            "image": "./01/P24.png",
             "actionData": [
                 {
                     "type": "button",
@@ -587,7 +587,7 @@
         },
         {
             "id": "P24_1",
-            "image": "./01/P24_1.jpg",
+            "image": "./01/P24_1.png",
             "actionData": [
                 {
                     "type": "button",
@@ -611,7 +611,7 @@
         },
         {
             "id": "P25",
-            "image": "./01/P25.jpg",
+            "image": "./01/P25.png",
             "actionData": [
                 {
                     "type": "button",
@@ -623,7 +623,7 @@
         },
         {
             "id": "P26",
-            "image": "./01/P26.jpg",
+            "image": "./01/P26.png",
             "actionData": [
                 {
                     "type": "button",
@@ -635,7 +635,7 @@
         },
         {
             "id": "P28",
-            "image": "./01/P28.jpg",
+            "image": "./01/P28.png",
             "actionData": [
                 {
                     "type": "button",
@@ -647,7 +647,7 @@
         },
         {
             "id": "P30",
-            "image": "./01/P30.jpg",
+            "image": "./01/P30.png",
             "actionData": [
                 {
                     "type": "button",
@@ -659,7 +659,7 @@
         },
         {
             "id": "P31",
-            "image": "./01/P31.jpg",
+            "image": "./01/P31.png",
             "actionData": [
                 {
                     "type": "end",
