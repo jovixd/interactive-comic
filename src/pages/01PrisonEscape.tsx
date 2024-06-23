@@ -12,7 +12,7 @@ const PrisonEscape = () => {
             <br/>
             <span>{import.meta.env.MODE}</span>
             <br/>
-            <Link href="/02-isekai-quest">Test link to the next comic</Link>
+            <Link href={import.meta.env.BASE_URL + "/02-isekai-quest"}>Test link to the next comic</Link>
             <ComicWrapper pages={getPagesMap(comicData.pages)} flags={comicData.flags} coverPage="P00" startPage="P01" />
         </>
     )
