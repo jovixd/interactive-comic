@@ -5,7 +5,7 @@ import { CssBaseline } from '@mui/material';
 import theme from './theme.js';
 import PrisonEscape from './pages/01PrisonEscape.js';
 import IsekaiQuest from './pages/02IsekaiQuest.js';
-import { createRootRoute, createRoute, createRouter, Link, NotFoundRoute, Outlet, RouterProvider } from '@tanstack/react-router';
+import { createHashHistory, createMemoryHistory, createRootRoute, createRoute, createRouter, Link, NotFoundRoute, Outlet, RouterProvider } from '@tanstack/react-router';
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -57,7 +57,9 @@ const isekaiQuestRoute = createRoute({
 
 const routeTree = rootRoute.addChildren([indexRoute, isekaiQuestRoute, prisonEscapeRoute])
 
-const router = createRouter({ routeTree, basepath: import.meta.env.BASE_URL })
+const hashHistory = createHashHistory()
+
+const router = createRouter({ routeTree, history: hashHistory, basepath: import.meta.env.BASE_URL })
 
 // Register the router instance for type safety
 declare module '@tanstack/react-router' {
