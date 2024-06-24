@@ -21,7 +21,7 @@ const rootRoute = createRootRoute({
         </Link>{' '}
         <Link to="/02-isekai-quest" className="[&.active]:font-bold">
           Isekai Quest
-        </Link>
+        </Link>{' '}
         <Link to="/03-hobby-tournament" className="[&.active]:font-bold">
           Hobby Tournament
         </Link>
