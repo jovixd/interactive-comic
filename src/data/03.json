@@ -1,0 +1,736 @@
+{
+    "pages": [
+        {
+            "id": "P99",
+            "image": "./03/P99.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Begin",
+                    "destinationId": "P00"
+                }
+            ]
+        },
+        {
+            "id": "P00",
+            "image": "./03/P00.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P01"
+                }
+            ]
+        },
+        {
+            "id": "P01",
+            "image": "./03/P01.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P02"
+                },
+                {
+                    "type": "click",
+                    "rectShape": "XYZ",
+                    "tooltip": "Hmmm?",
+                    "altText": "There's the grimoire!",
+                    "destinationId": "P44"
+                }
+            ]
+        },
+        {
+            "id": "P02",
+            "image": "./03/P02.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P03"
+                }
+            ]
+        },
+        {
+            "id": "P03",
+            "image": "./03/P03.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "Focus and GO SHOOT!",
+                    "destinationId": "P04"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Talk to Mystery Woman A!",
+                    "destinationId": "P05"
+                },
+                {
+                    "type": "button",
+                    "color": "pink",
+                    "label": "Talk to Mystery Woman B!",
+                    "destinationId": "P06"
+                },
+                {
+                    "type": "button",
+                    "color": "green",
+                    "label": "Talk to Mystery Man!",
+                    "destinationId": "P08"
+                }
+            ]
+        },
+        {
+            "id": "P04",
+            "image": "./03/P04.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P03"
+                }
+            ]
+        },
+        {
+            "id": "P05",
+            "image": "./03/P05.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P03"
+                }
+            ]
+        },
+        {
+            "id": "P06",
+            "image": "./03/P06.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P03",
+                    "requiredFlag": {
+                        "flag": "metStark",
+                        "flagValue": false
+                    }
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Oh yeah! There's a guy here with an axe!",
+                    "destinationId": "P07",
+                    "requiredFlag": {
+                        "flag": "metStark",
+                        "flagValue": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": "P07",
+            "image": "./03/P07.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "We're through the jungle!!",
+                    "destinationId": "P09"
+                }
+            ]
+        },
+        {
+            "id": "P08",
+            "image": "./03/P08.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P03",
+                    "setFlag": "metStark"
+                }
+            ]
+        },
+        {
+            "id": "P09",
+            "image": "./03/P09.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "No thanks!",
+                    "destinationId": "P10"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Okay!",
+                    "destinationId": "P14"
+                }
+            ]
+        },
+        {
+            "id": "P10",
+            "image": "./03/P10.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "No way!",
+                    "destinationId": "P11"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Okay!",
+                    "destinationId": "P14"
+                }
+            ]
+        },
+        {
+            "id": "P11",
+            "image": "./03/P10.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "I said no!",
+                    "destinationId": "P12"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Okay!",
+                    "destinationId": "P14"
+                }
+            ]
+        },
+        {
+            "id": "P12",
+            "image": "./03/P10.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "Over my dead body!",
+                    "destinationId": "P13"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Okay!",
+                    "destinationId": "P14"
+                }
+            ]
+        },
+        {
+            "id": "P13",
+            "image": "./03/P13.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "All right, all right, I'll cooperate!",
+                    "destinationId": "P14"
+                }
+            ]
+        },
+        {
+            "id": "P14",
+            "image": "./03/P14.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P15"
+                }
+            ]
+        },
+        {
+            "id": "P15",
+            "image": "./03/P15.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P21"
+                }
+            ]
+        },
+        {
+            "id": "P21",
+            "image": "./03/P21.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "GO SHOOT!",
+                    "destinationId": "P16"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Ask Frieren!",
+                    "destinationId": "P18"
+                },
+                {
+                    "type": "button",
+                    "color": "green",
+                    "label": "Ask Fern!",
+                    "destinationId": "P17"
+                }
+            ]
+        },
+        {
+            "id": "P16",
+            "image": "./03/P16.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P21"
+                }
+            ]
+        },
+        {
+            "id": "P18",
+            "image": "./03/P18.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "Got any other magic?",
+                    "destinationId": "P19"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "That won't work. Retry!!",
+                    "destinationId": "P21"
+                }
+            ]
+        },
+        {
+            "id": "P19",
+            "image": "./03/P19.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "Anything else?",
+                    "destinationId": "P20"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Gee, thanks. Retry!!",
+                    "destinationId": "P21"
+                }
+            ]
+        },
+        {
+            "id": "P17",
+            "image": "./03/P17.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P21"
+                }
+            ]
+        },
+        {
+            "id": "P20",
+            "image": "./03/P20.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "Have Chrono shoot",
+                    "destinationId": "P22"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Have Frieren shoot",
+                    "destinationId": "P22"
+                },
+                {
+                    "type": "button",
+                    "color": "pink",
+                    "label": "Have Fern shoot",
+                    "destinationId": "P22"
+                },
+                {
+                    "type": "button",
+                    "color": "green",
+                    "label": "Have Stark shoot",
+                    "destinationId": "P23"
+                }
+            ]
+        },
+        {
+            "id": "P22",
+            "image": "./03/P22.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P20"
+                }
+            ]
+        },
+        {
+            "id": "P23",
+            "image": "./03/P23.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Click 50 times to GO SHOOT!",
+                    "destinationId": "P24",
+                    "clicks": 50
+                }
+            ]
+        },
+        {
+            "id": "P24",
+            "image": "./03/P24.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "We're through the ice cavern!",
+                    "destinationId": "P25"
+                }
+            ]
+        },
+        {
+            "id": "P25",
+            "image": "./03/P25.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P26"
+                }
+            ]
+        },
+        {
+            "id": "P26",
+            "image": "./03/P26.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "a) Monthly CoroCoro Comics",
+                    "destinationId": "P28"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "b) Weekly Shounen Sunday",
+                    "destinationId": "P27"
+                }
+            ]
+        },
+        {
+            "id": "P28",
+            "image": "./03/P28.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P26"
+                }
+            ]
+        },
+        {
+            "id": "P27",
+            "image": "./03/P27.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Onto the next question!",
+                    "destinationId": "P29"
+                }
+            ]
+        },
+        {
+            "id": "P29",
+            "image": "./03/P29.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "a) X (Xtreme)",
+                    "destinationId": "P30"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "b) D (Dynamite)",
+                    "destinationId": "P28"
+                }
+            ]
+        },
+        {
+            "id": "P30",
+            "image": "./03/P27.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Onto the next question!",
+                    "destinationId": "P31"
+                }
+            ]
+        },
+        {
+            "id": "P31",
+            "image": "./03/P31.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "a) Practice",
+                    "destinationId": "P28"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "b) Time",
+                    "destinationId": "P32"
+                }
+            ]
+        },
+        {
+            "id": "P32",
+            "image": "./03/P27.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Onto the next question!",
+                    "destinationId": "P33"
+                }
+            ]
+        },
+        {
+            "id": "P33",
+            "image": "./03/P33.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "a) 156",
+                    "destinationId": "P28"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "b) 146",
+                    "destinationId": "P34"
+                }
+            ]
+        },
+        {
+            "id": "P34",
+            "image": "./03/P27.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Onto the next question!",
+                    "destinationId": "P35"
+                }
+            ]
+        },
+        {
+            "id": "P35",
+            "image": "./03/P35.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "a) A→B→A→B",
+                    "destinationId": "P28"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "b) B→A→B→B",
+                    "destinationId": "P36"
+                }
+            ]
+        },
+        {
+            "id": "P36",
+            "image": "./03/P27.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "We're through the water maze!!",
+                    "destinationId": "P37"
+                }
+            ]
+        },
+        {
+            "id": "P37",
+            "image": "./03/P37.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P38"
+                }
+            ]
+        },
+        {
+            "id": "P38",
+            "image": "./03/P38.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P39"
+                }
+            ]
+        },
+        {
+            "id": "P39",
+            "image": "./03/P39.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "orange",
+                    "label": "GO SHOOT!",
+                    "destinationId": "P40"
+                },
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Ask Frieren!",
+                    "destinationId": "P43"
+                },
+                {
+                    "type": "button",
+                    "color": "pink",
+                    "label": "Ask Fern!",
+                    "destinationId": "P41"
+                },
+                {
+                    "type": "button",
+                    "color": "green",
+                    "label": "Ask Stark!",
+                    "destinationId": "P42"
+                }
+            ]
+        },
+        {
+            "id": "P40",
+            "image": "./03/P40.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P39"
+                }
+            ]
+        },
+        {
+            "id": "P43",
+            "image": "./03/P43.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "restart"
+                }
+            ]
+        },
+        {
+            "id": "P41",
+            "image": "./03/P41.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P39"
+                }
+            ]
+        },
+        {
+            "id": "P42",
+            "image": "./03/P42.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Retry!!",
+                    "destinationId": "P39"
+                }
+            ]
+        },
+        {
+            "id": "P44",
+            "image": "./03/P44.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P45"
+                }
+            ]
+        },
+        {
+            "id": "P45",
+            "image": "./03/P45.png",
+            "actionData": [
+                {
+                    "type": "button",
+                    "color": "blue",
+                    "label": "Next",
+                    "destinationId": "P46"
+                }
+            ]
+        },
+        {
+            "id": "P46",
+            "image": "./03/P46.png",
+            "actionData": [
+                {
+                    "type": "end",
+                    "label": "THE END"
+                }
+            ]
+        }
+    ],
+    "flags": {
+        "metStark": false
+    }
+}

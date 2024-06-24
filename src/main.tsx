@@ -5,8 +5,10 @@ import { CssBaseline } from '@mui/material';
 import theme from './theme.js';
 import PrisonEscape from './pages/01PrisonEscape.js';
 import IsekaiQuest from './pages/02IsekaiQuest.js';
-import { createHashHistory, createMemoryHistory, createRootRoute, createRoute, createRouter, Link, NotFoundRoute, Outlet, RouterProvider } from '@tanstack/react-router';
+import HobbyTournament from './pages/03HobbyTournament.js'
+import { createHashHistory, createRootRoute, createRoute, createRouter, Link, Outlet, RouterProvider } from '@tanstack/react-router';
 
+// TODO make the root prettier
 const rootRoute = createRootRoute({
   component: () => (
     <>
@@ -55,7 +57,15 @@ const isekaiQuestRoute = createRoute({
   },
 })
 
-const routeTree = rootRoute.addChildren([indexRoute, isekaiQuestRoute, prisonEscapeRoute])
+const hobbyTournamentRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/03-hobby-tournament',
+  component: function HobbyTournamentRoute() {
+    return <HobbyTournament/>
+  },
+})
+
+const routeTree = rootRoute.addChildren([indexRoute, isekaiQuestRoute, prisonEscapeRoute, hobbyTournamentRoute])
 
 const hashHistory = createHashHistory()
 

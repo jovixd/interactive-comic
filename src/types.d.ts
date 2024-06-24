@@ -35,7 +35,7 @@ declare module '@mui/material/Button' {
 */
 
 export type DestinationAction = {
-    destinationId: string
+    destinationId: string | "restart"
     requiredFlag?: {
         flag: string
         flagValue: boolean
@@ -46,7 +46,8 @@ export type DestinationAction = {
 type ButtonAction = DestinationAction & {
     color: Palette,
     label: string,
-    type: "button"
+    type: "button",
+    clicks?: number
 }
 
 type InputAnswer = DestinationAction & {
@@ -63,7 +64,9 @@ export type InputAction = {
 
 type ImageAction = DestinationAction & {
     type: "click",
-    rectShape: string
+    rectShape: string,
+    tooltip: string,
+    altText: string
 }
 
 type EndAction = {
