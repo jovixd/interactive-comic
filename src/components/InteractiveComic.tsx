@@ -107,11 +107,13 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
         <Container disableGutters maxWidth="md">
             <Box display="flex" flexDirection="column">
                 {loading && <Loader />}
+                {/* TODO: reusing an image seems to load forever */}
                 <Box component="img" src={pageData.image} onLoad={() => setLoading(false)} display={loading ? "none" : "block"} mb={4} alt={pageData.id} ref={viewer} />
                 <Box sx={{ display: loading ? "none" : "grid", gridTemplateColumns: 'repeat(2, 1fr)', gap: '1em' }} m={2} mb={6}>
                     {pageData.actionData.map((action, index) => {
                         switch (action.type) {
                             case "button":
+                                // TODO: 50 clicks
                                 return (
                                     <React.Fragment key={index}>
                                         {isActionAvailable(action) &&
@@ -140,6 +142,7 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
                                 return (
                                     <Typography key={index} variant="h3" textAlign="center" sx={{ gridColumnStart: "span 2" }} mb={2}>{action.label}</Typography>
                                 )
+                            // TODO: add click gimmick
                         }
                     })}
                 </Box>
