@@ -52,7 +52,7 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
         // show loader... only to hide the instant scroll
         setLoading(true)
         // send player to the top
-        window.scrollTo(0, 0)
+        window.scrollTo(0, image?.current?.offsetTop ?? 0)
 
         // clear input fields and counter of the saved value
         if (name.length !== 0) {
@@ -141,7 +141,7 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
                                 return (
                                     <React.Fragment key={index}>
                                         {isActionAvailable(action) &&
-                                            <ActionButton onClick={() => handleButtonClick(action)} fullWidth disableElevation size="large" variant="contained" color={action.color}>{action.label}</ActionButton>}
+                                            <ActionButton onClick={() => handleButtonClick(action)} fullWidth disableElevation disableTouchRipple size="large" variant="contained" color={action.color}>{action.label}</ActionButton>}
                                     </React.Fragment>
                                 )
                             case "input":
