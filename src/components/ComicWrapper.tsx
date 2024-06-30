@@ -26,7 +26,7 @@ const ComicWrapper: React.FC<ComicWrapperProps> = ({pages, flags, coverPage, sta
     const handleFlagSet = (flag: string) => {
         setCurrentFlags({
             ...currentFlags,
-            [flag]: !currentFlags[flag]
+            [flag]: true
         })
     }
     const restart = () => {

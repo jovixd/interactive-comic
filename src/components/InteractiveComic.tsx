@@ -1,5 +1,5 @@
 import { Box, Button, CircularProgress, Container, InputAdornment, TextField, Typography, styled } from "@mui/material"
-import { Data, DestinationAction, InputAction, InputAnswer, PageData } from "../types.js"
+import { ButtonAction, Data, DestinationAction, InputAction, InputAnswer, PageData } from "../types.js"
 import React, { useEffect, useRef, useState } from "react"
 
 const ActionButton = styled(Button)({
@@ -36,22 +36,32 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
     const [isNameInvalid, setIsNameInvalid] = useState(false)
     const image = useRef<HTMLImageElement>()
 
+    // button variables
+    let clickCounter = useRef(0)
+
     useEffect(() => {
         requestAnimationFrame(() => {
             if (image?.current?.complete) {
+                // if the image was already cached thus onLoad didn't fire
                 setLoading(false)
-        }
-    }), []})
+            }
+        }), []
+    })
 
     const handlePageChange = (action: DestinationAction) => {
         // show loader... only to hide the instant scroll
         setLoading(true)
         // send player to the top
         window.scrollTo(0, 0)
-        // clear input field of the saved value
+
+        // clear input fields and counter of the saved value
         if (name.length !== 0) {
             setName("")
         }
+        if (clickCounter.current !== 0) {
+            clickCounter.current = 0
+        }
+        
         // set any required flags, or reset flags and page if we're restarting
         if (action?.setFlag) {
             handleFlagSet(action.setFlag)
@@ -85,11 +95,11 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
     const findInputDestination = ((answers: InputAnswer[], name: string | "default") => {
         const nameCleaned = name.trim().toLowerCase()
         const availableAnswers = answers.filter((answer) => isActionAvailable(answer))
-        
+
         // additional filter where actions that needed a required flag are prioritized
         const prioritizedAnswers = availableAnswers.filter((answer) => answer?.requiredFlag)
         const answersToMatch = prioritizedAnswers.length === 0 ? availableAnswers : prioritizedAnswers
-        
+
         return answersToMatch.find((answer) => answer.answer === nameCleaned)
     })
     const handleInputSubmit = (event: React.FormEvent<HTMLFormElement>, action: InputAction) => {
@@ -110,20 +120,28 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
         }
     }
 
+    const handleButtonClick = (action: ButtonAction) => {
+        if (action.clicks && clickCounter.current < action.clicks) {
+            clickCounter.current = clickCounter.current + 1
+        }
+        else {
+            handlePageChange(action)
+        }
+    }
+
     return (
         <Container disableGutters maxWidth="md">
             <Box display="flex" flexDirection="column">
                 {loading && <Loader />}
-                <Box component="img" src={pageData.image} onLoad={() => setLoading(false)} display={loading ? "none" : "block"} mb={4} alt={pageData.id} ref={image} />
+                <Box component="img" src={pageData.image} onLoad={() => setLoading(false)} display={loading ? "none" : "block"} mb={4} alt={pageData.id} ref={image} useMap="#clickAction" />
                 <Box sx={{ display: loading ? "none" : "grid", gridTemplateColumns: 'repeat(2, 1fr)', gap: '1em' }} m={2} mb={6}>
                     {pageData.actionData.map((action, index) => {
                         switch (action.type) {
                             case "button":
-                                // TODO: 50 clicks
                                 return (
                                     <React.Fragment key={index}>
                                         {isActionAvailable(action) &&
-                                            <ActionButton onClick={() => handlePageChange(action)} fullWidth disableElevation size="large" variant="contained" color={action.color}>{action.label}</ActionButton>}
+                                            <ActionButton onClick={() => handleButtonClick(action)} fullWidth disableElevation size="large" variant="contained" color={action.color}>{action.label}</ActionButton>}
                                     </React.Fragment>
                                 )
                             case "input":
@@ -138,17 +156,29 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
                                                 InputProps={{
                                                     sx: { height: "4.5em" },
                                                     endAdornment: name ? <InputAdornment position="end">
-                                                    <Button type="submit">Submit</Button>
-                                                </InputAdornment> : null
+                                                        <Button type="submit">Submit</Button>
+                                                    </InputAdornment> : null
                                                 }} />
                                         </Box>
                                     </React.Fragment>
                                 )
+                            // case "click":
+                            //     return (
+                            //         <Box component="map" name="clickAction" key={index} sx={{
+                            //             position: "absolute",
+                            //             top: "50",
+                            //             left: "100"
+                            //         }}>
+                            //             <area shape="rect"
+                            //                 coords="50,50,75,75"
+                            //                 // coords="810,5020,745,4960"
+                            //                 alt={action.altText}></area>
+                            //         </Box>
+                            //     )
                             case "end":
                                 return (
                                     <Typography key={index} variant="h3" textAlign="center" sx={{ gridColumnStart: "span 2" }} mb={2}>{action.label}</Typography>
                                 )
-                            // TODO: add click gimmick
                         }
                     })}
                 </Box>

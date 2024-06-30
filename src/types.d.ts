@@ -43,14 +43,14 @@ export type DestinationAction = {
     setFlag?: string
 }
 
-type ButtonAction = DestinationAction & {
+export type ButtonAction = DestinationAction & {
     color: Palette,
     label: string,
     type: "button",
     clicks?: number
 }
 
-type InputAnswer = DestinationAction & {
+export type InputAnswer = DestinationAction & {
     answer: string | "default"
 }
 
@@ -74,7 +74,7 @@ type EndAction = {
     type: "end"
 }
 
-type Action = ButtonAction | InputAction | EndAction
+type Action = ButtonAction | InputAction | ImageAction | EndAction
 
 export type PageData = {
     id: string,
