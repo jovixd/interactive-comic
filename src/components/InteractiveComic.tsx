@@ -1,6 +1,6 @@
 import { Box, Button, CircularProgress, Container, InputAdornment, TextField, Typography, styled } from "@mui/material"
 import { Data, DestinationAction, InputAction, InputAnswer, PageData } from "../types.js"
-import React, { useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 
 const ActionButton = styled(Button)({
     borderRadius: "3rem",
@@ -34,7 +34,14 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
     // input field variables
     const [name, setName] = useState('')
     const [isNameInvalid, setIsNameInvalid] = useState(false)
-    const viewer = useRef<HTMLElement>()
+    const image = useRef<HTMLImageElement>()
+
+    useEffect(() => {
+        requestAnimationFrame(() => {
+            if (image?.current?.complete) {
+                setLoading(false)
+        }
+    }), []})
 
     const handlePageChange = (action: DestinationAction) => {
         // show loader... only to hide the instant scroll
@@ -91,7 +98,7 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
             return
         }
         // blur the input so the scroll to top works with devices with virtual keyboards
-        viewer.current?.focus()
+        image.current?.focus()
 
         const potentialMatch = findInputDestination(action.answers, name)
         if (potentialMatch === undefined) {
@@ -107,8 +114,7 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
         <Container disableGutters maxWidth="md">
             <Box display="flex" flexDirection="column">
                 {loading && <Loader />}
-                {/* TODO: reusing an image seems to load forever */}
-                <Box component="img" src={pageData.image} onLoad={() => setLoading(false)} display={loading ? "none" : "block"} mb={4} alt={pageData.id} ref={viewer} />
+                <Box component="img" src={pageData.image} onLoad={() => setLoading(false)} display={loading ? "none" : "block"} mb={4} alt={pageData.id} ref={image} />
                 <Box sx={{ display: loading ? "none" : "grid", gridTemplateColumns: 'repeat(2, 1fr)', gap: '1em' }} m={2} mb={6}>
                     {pageData.actionData.map((action, index) => {
                         switch (action.type) {

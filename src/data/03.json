@@ -667,7 +667,7 @@
                     "type": "button",
                     "color": "blue",
                     "label": "Retry!!",
-                    "destinationId": "restart"
+                    "destinationId": "P00"
                 }
             ]
         },
