@@ -64,9 +64,12 @@ export type InputAction = {
 
 type ImageAction = DestinationAction & {
     type: "click",
-    rectShape: string,
+    imageHeight: number,
+    x: string,
+    y: string,
+    width: string,
+    height: string,
     tooltip: string,
-    altText: string
 }
 
 type EndAction = {
@@ -74,12 +77,13 @@ type EndAction = {
     type: "end"
 }
 
-type Action = ButtonAction | InputAction | ImageAction | EndAction
+type Action = ButtonAction | InputAction | EndAction
 
 export type PageData = {
     id: string,
     image: string,
-    actionData: Action[]
+    actionData: Action[],
+    imageAction?: ImageAction
 }
 
 export type Data = {

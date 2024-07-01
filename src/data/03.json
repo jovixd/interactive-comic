@@ -33,15 +33,18 @@
                     "color": "blue",
                     "label": "Next",
                     "destinationId": "P02"
-                },
-                {
-                    "type": "click",
-                    "rectShape": "XYZ",
-                    "tooltip": "Hmmm?",
-                    "altText": "There's the grimoire!",
-                    "destinationId": "P44"
                 }
-            ]
+            ],
+            "imageAction": {
+                "type": "click",
+                "imageHeight": 5913,
+                "x": "62%",
+                "y": "83%",
+                "width": "14%",
+                "height": "3%",
+                "tooltip": "Hmmm?",
+                "destinationId": "P44"
+            }
         },
         {
             "id": "P02",

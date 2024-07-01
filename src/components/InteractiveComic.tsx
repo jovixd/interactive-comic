@@ -37,7 +37,7 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
     const image = useRef<HTMLImageElement>()
 
     // button variables
-    let clickCounter = useRef(0)
+    const clickCounter = useRef(0)
 
     useEffect(() => {
         requestAnimationFrame(() => {
@@ -52,7 +52,7 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
         // show loader... only to hide the instant scroll
         setLoading(true)
         // send player to the top
-        window.scrollTo(0, image?.current?.offsetTop ?? 0)
+        image?.current?.scrollIntoView({behavior: "instant"})
 
         // clear input fields and counter of the saved value
         if (name.length !== 0) {
@@ -131,18 +131,16 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
 
     return (
         <Container disableGutters maxWidth="md">
-            <Box display="flex" flexDirection="column">
+            <Box display="flex" flexDirection="column" position="relative">
                 {loading && <Loader />}
                 <Box component="img" src={pageData.image} onLoad={() => setLoading(false)} display={loading ? "none" : "block"} mb={4} alt={pageData.id} ref={image} />
-                {/* <Box component="svg" position="absolute" top="4em" left="5em"
-                    width="1em" height="1em" viewBox="0 0 100 100"
-                    sx={{ backgroundColor: "rgba(0,0,255,250)" }}
-                >
-                    <rect
-                        x="0" y="0" width="1em" height="1em"
-                        fill="rgba(0,255,0,250)"
-                    ></rect>
-                </Box> */}
+                {pageData?.imageAction && <Box component="svg" viewBox={`0 0 1080 ${pageData.imageAction.imageHeight}`} position="absolute">
+                    <rect x={pageData.imageAction.x} y={pageData.imageAction.y} width={pageData.imageAction.width} height={pageData.imageAction.height}
+                        // @ts-expect-error
+                        onClick={() => handlePageChange(pageData.imageAction)} fill="none" pointerEvents="fill">
+                        <title>{pageData.imageAction.tooltip}</title>
+                    </rect>
+                </Box>}
                 <Box display={loading ? "none" : "grid"} gap='1em' m={2} mb={6} sx={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
                     {pageData.actionData.map((action, index) => {
                         switch (action.type) {
@@ -170,22 +168,6 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
                                                 }} />
                                         </Box>
                                     </React.Fragment>
-                                )
-                            case "click":
-                                return (
-                                    <></>
-                                    // <Box component="map" name="clickAction" key={index} sx={{
-                                    //     position: "absolute",
-                                    //     top: "0",
-                                    //     left: "0",
-                                    //     backgroundColor: "red"
-                                    // }}>
-                                    //     <area shape="rect"
-                                    //         coords="0,0,5,5"
-                                    //         href="https://www.google.com"
-                                    //         // coords="667,4920,832,5088"
-                                    //         alt={action.altText}></area>
-                                    // </Box>
                                 )
                             case "end":
                                 return (
