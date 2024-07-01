@@ -61,7 +61,7 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
         if (clickCounter.current !== 0) {
             clickCounter.current = 0
         }
-        
+
         // set any required flags, or reset flags and page if we're restarting
         if (action?.setFlag) {
             handleFlagSet(action.setFlag)
@@ -133,8 +133,17 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
         <Container disableGutters maxWidth="md">
             <Box display="flex" flexDirection="column">
                 {loading && <Loader />}
-                <Box component="img" src={pageData.image} onLoad={() => setLoading(false)} display={loading ? "none" : "block"} mb={4} alt={pageData.id} ref={image} useMap="#clickAction" />
-                <Box sx={{ display: loading ? "none" : "grid", gridTemplateColumns: 'repeat(2, 1fr)', gap: '1em' }} m={2} mb={6}>
+                <Box component="img" src={pageData.image} onLoad={() => setLoading(false)} display={loading ? "none" : "block"} mb={4} alt={pageData.id} ref={image} />
+                {/* <Box component="svg" position="absolute" top="4em" left="5em"
+                    width="1em" height="1em" viewBox="0 0 100 100"
+                    sx={{ backgroundColor: "rgba(0,0,255,250)" }}
+                >
+                    <rect
+                        x="0" y="0" width="1em" height="1em"
+                        fill="rgba(0,255,0,250)"
+                    ></rect>
+                </Box> */}
+                <Box display={loading ? "none" : "grid"} gap='1em' m={2} mb={6} sx={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
                     {pageData.actionData.map((action, index) => {
                         switch (action.type) {
                             case "button":
@@ -162,19 +171,22 @@ const InteractiveComic: React.FC<InteractiveComicProps> = ({ pageData, currentFl
                                         </Box>
                                     </React.Fragment>
                                 )
-                            // case "click":
-                            //     return (
-                            //         <Box component="map" name="clickAction" key={index} sx={{
-                            //             position: "absolute",
-                            //             top: "50",
-                            //             left: "100"
-                            //         }}>
-                            //             <area shape="rect"
-                            //                 coords="50,50,75,75"
-                            //                 // coords="810,5020,745,4960"
-                            //                 alt={action.altText}></area>
-                            //         </Box>
-                            //     )
+                            case "click":
+                                return (
+                                    <></>
+                                    // <Box component="map" name="clickAction" key={index} sx={{
+                                    //     position: "absolute",
+                                    //     top: "0",
+                                    //     left: "0",
+                                    //     backgroundColor: "red"
+                                    // }}>
+                                    //     <area shape="rect"
+                                    //         coords="0,0,5,5"
+                                    //         href="https://www.google.com"
+                                    //         // coords="667,4920,832,5088"
+                                    //         alt={action.altText}></area>
+                                    // </Box>
+                                )
                             case "end":
                                 return (
                                     <Typography key={index} variant="h3" textAlign="center" sx={{ gridColumnStart: "span 2" }} mb={2}>{action.label}</Typography>
